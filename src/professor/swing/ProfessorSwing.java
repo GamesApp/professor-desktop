@@ -33,9 +33,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbPontuacaoTotal = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLbCurso = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLbCorTurma = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         jLbQntAlunos = new javax.swing.JLabel();
@@ -49,6 +48,13 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLabel59 = new javax.swing.JLabel();
         jLbPontuacaoTotal1 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
+        jLbImagemTurma = new javax.swing.JLabel();
+        jLbCurso = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jTEmAndamento = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
@@ -105,6 +111,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLabel62 = new javax.swing.JLabel();
         jLbHora1 = new javax.swing.JLabel();
         jLbLocal1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -135,38 +142,41 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jLbPontuacaoTotal.setText("lugar");
         jPanel1.add(jLbPontuacaoTotal);
-        jLbPontuacaoTotal.setBounds(520, 100, 50, 30);
+        jLbPontuacaoTotal.setBounds(560, 130, 50, 30);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/trophy-variant.png"))); // NOI18N
-        jLabel5.setText("Colocação no Ranking: ");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/trophy-award.png"))); // NOI18N
+        jLabel5.setText("Últimas atividades ganhas:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(240, 100, 186, 30);
+        jLabel5.setBounds(280, 370, 230, 30);
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/school.png"))); // NOI18N
         jLabel7.setText("Curso:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(410, 230, 45, 17);
+        jLabel7.setBounds(280, 220, 90, 24);
 
-        jLbCurso.setText("Informática");
-        jPanel1.add(jLbCurso);
-        jLbCurso.setBounds(600, 230, 79, 17);
-
-        jLabel9.setText("Cor da turma:");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(410, 250, 94, 17);
-
+        jLbCorTurma.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbCorTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbCorTurma.setText("Laranja");
         jPanel1.add(jLbCorTurma);
-        jLbCorTurma.setBounds(630, 250, 50, 17);
-        jPanel1.add(jSeparator1);
-        jSeparator1.setBounds(410, 210, 270, 10);
+        jLbCorTurma.setBounds(490, 250, 100, 20);
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/slack.png"))); // NOI18N
+        jLabel9.setText("Cor da turma:");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(280, 250, 130, 24);
+        jPanel1.add(jSeparator1);
+        jSeparator1.setBounds(220, 340, 720, 20);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/emoticon-cool.png"))); // NOI18N
         jLabel11.setText("Quantidade de alunos: ");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(410, 280, 159, 17);
+        jLabel11.setBounds(280, 280, 200, 24);
 
+        jLbQntAlunos.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbQntAlunos.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbQntAlunos.setText("34");
         jPanel1.add(jLbQntAlunos);
-        jLbQntAlunos.setBounds(660, 280, 16, 17);
+        jLbQntAlunos.setBounds(550, 280, 40, 20);
 
         jListaTurmas.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jListaTurmas.setModel(new javax.swing.AbstractListModel<String>() {
@@ -207,28 +217,60 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbNomeTurma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLbNomeTurma.setText("INF Laranja");
         jPanel1.add(jLbNomeTurma);
-        jLbNomeTurma.setBounds(220, 20, 700, 30);
+        jLbNomeTurma.setBounds(220, 30, 700, 30);
 
         jLabel58.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel58.setText("1° ");
         jPanel1.add(jLabel58);
-        jLabel58.setBounds(430, 100, 70, 30);
+        jLabel58.setBounds(470, 130, 70, 30);
 
         jLabel59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/trending-up.png"))); // NOI18N
         jLabel59.setText("Pontuação total: ");
         jPanel1.add(jLabel59);
-        jLabel59.setBounds(240, 70, 150, 24);
+        jLabel59.setBounds(280, 100, 150, 17);
 
         jLbPontuacaoTotal1.setText("pontos");
         jPanel1.add(jLbPontuacaoTotal1);
-        jLbPontuacaoTotal1.setBounds(520, 67, 50, 30);
+        jLbPontuacaoTotal1.setBounds(560, 100, 50, 20);
 
         jLabel63.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel63.setText("2000");
         jPanel1.add(jLabel63);
-        jLabel63.setBounds(390, 70, 110, 21);
+        jLabel63.setBounds(430, 100, 110, 21);
+
+        jLbImagemTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/22473670.png"))); // NOI18N
+        jPanel1.add(jLbImagemTurma);
+        jLbImagemTurma.setBounds(750, 10, 150, 152);
+
+        jLbCurso.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbCurso.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLbCurso.setText("Informática");
+        jPanel1.add(jLbCurso);
+        jLbCurso.setBounds(490, 220, 100, 20);
+        jPanel1.add(jSeparator9);
+        jSeparator9.setBounds(210, 180, 720, 20);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/trophy-variant.png"))); // NOI18N
+        jLabel6.setText("Colocação no Ranking: ");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(280, 130, 186, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/star-outline (1).png"))); // NOI18N
+        jLabel2.setText("Aqui vai o nome da última atividade que aturma ganhou");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(360, 450, 400, 20);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/star-outline (1).png"))); // NOI18N
+        jLabel3.setText("Aqui vai o nome da última atividade que aturma ganhou");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(360, 407, 400, 20);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/star-outline (1).png"))); // NOI18N
+        jLabel4.setText("Aqui vai o nome da última atividade que aturma ganhou");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(360, 430, 400, 20);
 
         jTRanking.addTab("Home", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/home.png")), jPanel1); // NOI18N
 
@@ -535,6 +577,24 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jTRanking.addTab("Atividades", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/tooltip-text.png")), jPanel4); // NOI18N
 
+        jPanel2.setBackground(new java.awt.Color(254, 254, 254));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 926, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 499, Short.MAX_VALUE)
+        );
+
+        jTRanking.addTab("Ranking", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/trophy-variant.png")), jPanel2); // NOI18N
+
+        jMenuBar1.setBackground(new java.awt.Color(1, 1, 1));
+        jMenuBar1.setForeground(new java.awt.Color(254, 254, 254));
+
         jMenu1.setText("Opções");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
@@ -572,12 +632,12 @@ public class ProfessorSwing extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTRanking, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE)
+            .addComponent(jTRanking)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 543, Short.MAX_VALUE)
+                .addComponent(jTRanking, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
                 .addGap(1, 1, 1))
         );
 
@@ -671,9 +731,12 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
@@ -691,6 +754,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
@@ -703,6 +767,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLbData1;
     private javax.swing.JLabel jLbHora;
     private javax.swing.JLabel jLbHora1;
+    private javax.swing.JLabel jLbImagemTurma;
     private javax.swing.JLabel jLbLocal;
     private javax.swing.JLabel jLbLocal1;
     private javax.swing.JLabel jLbNomeAtividade;
@@ -727,6 +792,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -743,6 +809,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTADescricao;
     private javax.swing.JTextArea jTADescricao1;
     private javax.swing.JTabbedPane jTEmAndamento;
