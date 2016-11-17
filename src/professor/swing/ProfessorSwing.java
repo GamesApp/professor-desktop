@@ -92,14 +92,13 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel6 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
@@ -111,6 +110,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(254, 252, 250));
+        jPanel1.setToolTipText("");
         jPanel1.setLayout(null);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
@@ -188,6 +189,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbNomeTurma.setBounds(110, 35, 270, 21);
 
         jTRanking.addTab("Home", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(254, 254, 254));
 
         jListaAtividadesAndamento.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Atividade 6", "Atividade 7", "Atividade 8", "Atividade 9", "Atividade 10" };
@@ -337,6 +340,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jTRanking.addTab("Em andamento", jPanel3);
 
+        jPanel2.setBackground(new java.awt.Color(254, 252, 251));
+
         jList4.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Atividade 1", "Atividade 2", "Atividade 3", "Atividade 4", "Atividade 5" };
             public int getSize() { return strings.length; }
@@ -344,6 +349,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jList4);
 
+        jLabel23.setBackground(new java.awt.Color(254, 254, 254));
         jLabel23.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("Atividade 1");
@@ -474,18 +480,9 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jTRanking.addTab("Concluídas", jPanel2);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 838, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 729, Short.MAX_VALUE)
-        );
+        jPanel4.setBackground(new java.awt.Color(255, 254, 254));
 
-        jTabbedPane1.addTab("Concluídas", jPanel6);
+        jTabbedPane1.setBackground(new java.awt.Color(254, 254, 254));
 
         jPanel5.setBackground(new java.awt.Color(255, 252, 250));
         jPanel5.setLayout(null);
@@ -504,6 +501,21 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Em andamento", jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(254, 250, 247));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 838, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 729, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Concluídas", jPanel6);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -512,7 +524,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jTRanking.addTab("Atividades", jPanel4);
@@ -529,22 +541,13 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Excluir atividade");
+        jMenuItem3.setText("Editar atividade");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem3);
-
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setText("Concluir atividade");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem5);
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem4.setText("Informações GamesApp");
@@ -584,10 +587,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jListaAtividadesAndamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaAtividadesAndamentoMouseClicked
         // TODO add your handling code here:
@@ -693,7 +692,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
