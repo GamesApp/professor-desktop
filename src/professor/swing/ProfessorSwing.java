@@ -5,6 +5,8 @@
  */
 package professor.swing;
 
+import javax.swing.JOptionPane;
+
 
 
 public class ProfessorSwing extends javax.swing.JFrame {
@@ -121,6 +123,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(934, 565));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -637,7 +640,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTRanking, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                .addComponent(jTRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 543, Short.MAX_VALUE)
                 .addGap(1, 1, 1))
         );
 
@@ -646,7 +649,9 @@ public class ProfessorSwing extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+     
+      new NovaAtividadeSwing().setVisible(true);
+      
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -655,6 +660,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
+        new InformacoesSwing().setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -672,6 +678,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Pegar as informações da atividade e mandar pra tela nova atividade para editar");
+        new NovaAtividadeSwing().setVisible(true);
     }//GEN-LAST:event_jBEditarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
