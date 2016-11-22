@@ -5,6 +5,8 @@
  */
 package professor.swing;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -184,11 +186,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbQntAlunos.setBounds(550, 280, 40, 20);
 
         jListaTurmas.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jListaTurmas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "INF4AM", "REFRI4AM", "INF3AM", "REFRI3AM", "INF2AT", "INF2AM", "REFRI2AT", "REFRI2AT", "INF1AT", "INF1AM", "REFRI1AT", "REFRI1AM" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jListaTurmas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListaTurmasMouseClicked(evt);
@@ -688,12 +685,21 @@ public class ProfessorSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-       DefaultTableModel model = (DefaultTableModel)jTRanking.getModel();
+ 
+       //Lista de turmas HOME
+        DefaultListModel listaTurma = new DefaultListModel();
+        for (int i = 0; i < 10; i++) {
+            listaTurma.addElement("INF4AM: " + i);
+        }
+        jListaTurmas.setModel(listaTurma);
+        
+        
+        //tabela do ranking
+        DefaultTableModel model = (DefaultTableModel)jTRanking.getModel();
        model.setNumRows(0);
-       
-       JOptionPane.showMessageDialog(null, "Fazer pesquisa no banco e retornar todas as turmas e sua pontuação em ordem decrescebte");
+       //Fazer pesquisa no banco e retornar todas as turmas e sua pontuação em ordem decrescebte
        model.addRow(new Object[] {"INF4AM", "5000"});
+      
     }//GEN-LAST:event_formWindowOpened
 
     private void jListaAtividadesConcluidasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaAtividadesConcluidasMouseClicked
