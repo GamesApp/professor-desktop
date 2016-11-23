@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package professor.swing;
 
 import javax.swing.DefaultListModel;
@@ -33,7 +29,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jTFundo = new javax.swing.JTabbedPane();
         jPHome = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLbCodTurma = new javax.swing.JLabel();
         jLbPontuacaoTotal = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -41,19 +37,19 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
-        jLbQntAlunos = new javax.swing.JLabel();
+        jLbQntAlunosTurma = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         jListaTurmas = new javax.swing.JList<>();
         jSeparator8 = new javax.swing.JSeparator();
         jTFPesquisar = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
         jLbNomeTurma = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
+        jLbColocacaoRankingTurma = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
         jLbPontuacaoTotal1 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
+        jLbPontuacaoTotalTurma = new javax.swing.JLabel();
         jLbImagemTurma = new javax.swing.JLabel();
-        jLbCurso = new javax.swing.JLabel();
+        jLbCursoTurma = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -83,12 +79,12 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbPontuacaoPrimeiro = new javax.swing.JLabel();
         jLbPontuacaoSegundo = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jLbLocal = new javax.swing.JLabel();
+        jLbLocalEmAndamento = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel53 = new javax.swing.JLabel();
-        jLbData = new javax.swing.JLabel();
+        jLbDataEmAndamento = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
-        jLbHora = new javax.swing.JLabel();
+        jLbHoraEmAndamento = new javax.swing.JLabel();
         jBEditar = new javax.swing.JButton();
         jPConcluidas = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
@@ -109,12 +105,12 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbTurmaSegundoLugar = new javax.swing.JLabel();
         jLbTurmaTerceiroLugar = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        jLbData1 = new javax.swing.JLabel();
+        jLbDataConcluidas = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
-        jLbHora1 = new javax.swing.JLabel();
-        jLbLocal1 = new javax.swing.JLabel();
+        jLbHoraConcluidas = new javax.swing.JLabel();
+        jLbLocalConcluidas = new javax.swing.JLabel();
         jPRanking = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTRanking = new javax.swing.JTable();
@@ -140,12 +136,12 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPHome.setToolTipText("");
         jPHome.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 13)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("INF4AM");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPHome.add(jLabel1);
-        jLabel1.setBounds(220, 10, 700, 16);
+        jLbCodTurma.setFont(new java.awt.Font("Ubuntu", 0, 13)); // NOI18N
+        jLbCodTurma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbCodTurma.setText("INF4AM");
+        jLbCodTurma.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPHome.add(jLbCodTurma);
+        jLbCodTurma.setBounds(220, 10, 700, 16);
 
         jLbPontuacaoTotal.setText("lugar");
         jPHome.add(jLbPontuacaoTotal);
@@ -179,11 +175,11 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPHome.add(jLabel11);
         jLabel11.setBounds(280, 280, 200, 24);
 
-        jLbQntAlunos.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbQntAlunos.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLbQntAlunos.setText("34");
-        jPHome.add(jLbQntAlunos);
-        jLbQntAlunos.setBounds(550, 280, 40, 20);
+        jLbQntAlunosTurma.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbQntAlunosTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLbQntAlunosTurma.setText("34");
+        jPHome.add(jLbQntAlunosTurma);
+        jLbQntAlunosTurma.setBounds(550, 280, 40, 20);
 
         jListaTurmas.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jListaTurmas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,11 +217,11 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPHome.add(jLbNomeTurma);
         jLbNomeTurma.setBounds(220, 30, 700, 30);
 
-        jLabel58.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel58.setText("1° ");
-        jPHome.add(jLabel58);
-        jLabel58.setBounds(470, 130, 70, 30);
+        jLbColocacaoRankingTurma.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLbColocacaoRankingTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLbColocacaoRankingTurma.setText("1° ");
+        jPHome.add(jLbColocacaoRankingTurma);
+        jLbColocacaoRankingTurma.setBounds(470, 130, 70, 30);
 
         jLabel59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/trending-up.png"))); // NOI18N
         jLabel59.setText("Pontuação total: ");
@@ -236,21 +232,21 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPHome.add(jLbPontuacaoTotal1);
         jLbPontuacaoTotal1.setBounds(560, 100, 50, 20);
 
-        jLabel63.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel63.setText("2000");
-        jPHome.add(jLabel63);
-        jLabel63.setBounds(430, 100, 110, 21);
+        jLbPontuacaoTotalTurma.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLbPontuacaoTotalTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLbPontuacaoTotalTurma.setText("2000");
+        jPHome.add(jLbPontuacaoTotalTurma);
+        jLbPontuacaoTotalTurma.setBounds(430, 100, 110, 21);
 
         jLbImagemTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/22473670.png"))); // NOI18N
         jPHome.add(jLbImagemTurma);
         jLbImagemTurma.setBounds(750, 10, 150, 152);
 
-        jLbCurso.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbCurso.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLbCurso.setText("Informática");
-        jPHome.add(jLbCurso);
-        jLbCurso.setBounds(490, 220, 100, 20);
+        jLbCursoTurma.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbCursoTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLbCursoTurma.setText("Informática");
+        jPHome.add(jLbCursoTurma);
+        jLbCursoTurma.setBounds(490, 220, 100, 20);
         jPHome.add(jSeparator9);
         jSeparator9.setBounds(210, 180, 720, 20);
 
@@ -396,10 +392,10 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPEmAndamento.add(jLabel51);
         jLabel51.setBounds(240, 230, 110, 24);
 
-        jLbLocal.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbLocal.setText("Parque do Chimirrão");
-        jPEmAndamento.add(jLbLocal);
-        jLbLocal.setBounds(360, 420, 160, 21);
+        jLbLocalEmAndamento.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbLocalEmAndamento.setText("Parque do Chimirrão");
+        jPEmAndamento.add(jLbLocalEmAndamento);
+        jLbLocalEmAndamento.setBounds(360, 420, 160, 21);
         jPEmAndamento.add(jSeparator4);
         jSeparator4.setBounds(210, 330, 710, 20);
 
@@ -408,20 +404,20 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPEmAndamento.add(jLabel53);
         jLabel53.setBounds(240, 360, 90, 20);
 
-        jLbData.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbData.setText("18 de novembro de 2016");
-        jPEmAndamento.add(jLbData);
-        jLbData.setBounds(360, 360, 197, 21);
+        jLbDataEmAndamento.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbDataEmAndamento.setText("18 de novembro de 2016");
+        jPEmAndamento.add(jLbDataEmAndamento);
+        jLbDataEmAndamento.setBounds(360, 360, 197, 21);
 
         jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/clock.png"))); // NOI18N
         jLabel55.setText("Hora: ");
         jPEmAndamento.add(jLabel55);
         jLabel55.setBounds(240, 390, 90, 20);
 
-        jLbHora.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbHora.setText("8:30 h");
-        jPEmAndamento.add(jLbHora);
-        jLbHora.setBounds(360, 390, 48, 21);
+        jLbHoraEmAndamento.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbHoraEmAndamento.setText("8:30 h");
+        jPEmAndamento.add(jLbHoraEmAndamento);
+        jLbHoraEmAndamento.setBounds(360, 390, 48, 21);
 
         jBEditar.setBackground(new java.awt.Color(1, 1, 1));
         jBEditar.setForeground(new java.awt.Color(254, 254, 254));
@@ -532,10 +528,10 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPConcluidas.add(jSeparator7);
         jSeparator7.setBounds(210, 330, 710, 20);
 
-        jLbData1.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbData1.setText("18 de novembro de 2016");
-        jPConcluidas.add(jLbData1);
-        jLbData1.setBounds(360, 360, 197, 21);
+        jLbDataConcluidas.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbDataConcluidas.setText("18 de novembro de 2016");
+        jPConcluidas.add(jLbDataConcluidas);
+        jLbDataConcluidas.setBounds(360, 360, 197, 21);
 
         jLabel60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/calendar-check.png"))); // NOI18N
         jLabel60.setText("Data: ");
@@ -552,15 +548,15 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPConcluidas.add(jLabel62);
         jLabel62.setBounds(240, 420, 90, 20);
 
-        jLbHora1.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbHora1.setText("8:30 h");
-        jPConcluidas.add(jLbHora1);
-        jLbHora1.setBounds(360, 390, 48, 21);
+        jLbHoraConcluidas.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbHoraConcluidas.setText("8:30 h");
+        jPConcluidas.add(jLbHoraConcluidas);
+        jLbHoraConcluidas.setBounds(360, 390, 48, 21);
 
-        jLbLocal1.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbLocal1.setText("Parque do Chimirrão");
-        jPConcluidas.add(jLbLocal1);
-        jLbLocal1.setBounds(360, 420, 160, 21);
+        jLbLocalConcluidas.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        jLbLocalConcluidas.setText("Parque do Chimirrão");
+        jPConcluidas.add(jLbLocalConcluidas);
+        jLbLocalConcluidas.setBounds(360, 420, 160, 21);
 
         jTBFundo.addTab("Concluídas", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/check-circle-outline.png")), jPConcluidas); // NOI18N
 
@@ -703,7 +699,15 @@ public class ProfessorSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jListaAtividadesConcluidasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaAtividadesConcluidasMouseClicked
-        // TODO add your handling code here:
+        
+        //pegar as informaões do objeto selecionado
+        
+        //alterar as informações da tela CONCLUÍDAS
+        jLbNomeAtividadeConcluida.setText("");
+        jTADescricaoConcluidas.setText("");
+        jLbTurmaPrimeiroLugar.setText("");
+        jLbTurmaSegundoLugar.setText("");
+        jLbTurmaTerceiroLugar.setText("");
     }//GEN-LAST:event_jListaAtividadesConcluidasMouseClicked
 
     private void jTFPesquisarConcluidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisarConcluidasActionPerformed
@@ -721,11 +725,34 @@ public class ProfessorSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFPesquisarEmAndamentoActionPerformed
 
     private void jListaAtividadesAndamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaAtividadesAndamentoMouseClicked
-        // TODO add your handling code here:
+        
+        //pegar as informaões do objeto selecionado
+        
+        //alterar as informações da tela EM ANDAMENTO
+        jLbNomeAtividadeEmAndamento.setText("");
+        jTADescricaoEmAndamento.setText("");
+        jLbPontuacaoPrimeiro.setText("");
+        jLbPontuacaoSegundo.setText("");
+        jLbPontuacaoTerceiro.setText("");
+        jLbDataEmAndamento.setText("");
+        jLbHoraEmAndamento.setText("");
+        jLbLocalEmAndamento.setText("");
     }//GEN-LAST:event_jListaAtividadesAndamentoMouseClicked
 
     private void jListaTurmasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaTurmasMouseClicked
-        // TODO add your handling code here:
+        
+        //pegar informações do objeto (TURMA) selecionado
+    
+        //alterar as informações da tela HOME
+        jLbCodTurma.setText("");
+        jLbNomeTurma.setText("");
+        jLbPontuacaoTotalTurma.setText("");
+        jLbColocacaoRankingTurma.setText("");
+        jLbCursoTurma.setText("");
+        jLbCorTurma.setText("");
+        jLbQntAlunosTurma.setText("");
+    
+    
     }//GEN-LAST:event_jListaTurmasMouseClicked
 
     private void jTFPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisarActionPerformed
@@ -780,7 +807,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imagemLupa;
     private javax.swing.JButton jBEditar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -804,24 +830,24 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLbCodTurma;
+    private javax.swing.JLabel jLbColocacaoRankingTurma;
     private javax.swing.JLabel jLbCorTurma;
-    private javax.swing.JLabel jLbCurso;
-    private javax.swing.JLabel jLbData;
-    private javax.swing.JLabel jLbData1;
-    private javax.swing.JLabel jLbHora;
-    private javax.swing.JLabel jLbHora1;
+    private javax.swing.JLabel jLbCursoTurma;
+    private javax.swing.JLabel jLbDataConcluidas;
+    private javax.swing.JLabel jLbDataEmAndamento;
+    private javax.swing.JLabel jLbHoraConcluidas;
+    private javax.swing.JLabel jLbHoraEmAndamento;
     private javax.swing.JLabel jLbImagemTurma;
-    private javax.swing.JLabel jLbLocal;
-    private javax.swing.JLabel jLbLocal1;
+    private javax.swing.JLabel jLbLocalConcluidas;
+    private javax.swing.JLabel jLbLocalEmAndamento;
     private javax.swing.JLabel jLbNomeAtividadeConcluida;
     private javax.swing.JLabel jLbNomeAtividadeEmAndamento;
     private javax.swing.JLabel jLbNomeTurma;
@@ -830,7 +856,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLbPontuacaoTerceiro;
     private javax.swing.JLabel jLbPontuacaoTotal;
     private javax.swing.JLabel jLbPontuacaoTotal1;
-    private javax.swing.JLabel jLbQntAlunos;
+    private javax.swing.JLabel jLbPontuacaoTotalTurma;
+    private javax.swing.JLabel jLbQntAlunosTurma;
     private javax.swing.JLabel jLbTurmaPrimeiroLugar;
     private javax.swing.JLabel jLbTurmaSegundoLugar;
     private javax.swing.JLabel jLbTurmaTerceiroLugar;
