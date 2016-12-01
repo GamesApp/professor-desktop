@@ -35,7 +35,6 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
         jLbNomeTurma = new javax.swing.JLabel();
         jTFNomeTurma = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTFAnoInicialTurma = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -52,6 +51,7 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
         jBSalvar = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
         jBExcluir = new javax.swing.JButton();
+        jYCAnoInicialTurma = new com.toedter.calendar.JYearChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -94,6 +94,12 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/account-card-details.png"))); // NOI18N
         jLabel7.setText("Matrícula: ");
+
+        jTFMatriculaAluno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFMatriculaAlunoKeyTyped(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(1, 1, 1));
         jButton1.setForeground(new java.awt.Color(254, 242, 242));
@@ -151,9 +157,9 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
                             .addComponent(jLbNomeTurma))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTFAnoInicialTurma, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTFNomeTurma, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 295, Short.MAX_VALUE)
+                            .addComponent(jYCAnoInicialTurma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +176,7 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -197,9 +203,9 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
                             .addComponent(jLbNomeTurma)
                             .addComponent(jTFNomeTurma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
-                            .addComponent(jTFAnoInicialTurma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jYCAnoInicialTurma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -249,6 +255,7 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
         
         listaAlunos.addElement(mat);
         jListaAlunosTurma.setModel(listaAlunos);
+        jTFMatriculaAluno.setText("");
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -269,7 +276,7 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jListaAlunosTurmaMouseClicked
 
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
-        // TODO add your handling code here:
+        
         int[] selecionados = jListaAlunosTurma.getSelectedIndices();
         int tamanho = selecionados.length-1;
         for(int i = tamanho; i >= 0; i--) {
@@ -292,6 +299,14 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBSalvarActionPerformed
 
+    private void jTFMatriculaAlunoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFMatriculaAlunoKeyTyped
+        // aceita somente numeros
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar()+"")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFMatriculaAlunoKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBExcluir;
@@ -310,10 +325,10 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
     private javax.swing.JList<String> jListaAlunosTurma;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTFAnoInicialTurma;
     private javax.swing.JTextField jTFCorTurma;
     private javax.swing.JTextField jTFMatriculaAluno;
     private javax.swing.JTextField jTFNomeTurma;
     private javax.swing.JTextField jTFPontuacaoTurma;
+    private com.toedter.calendar.JYearChooser jYCAnoInicialTurma;
     // End of variables declaration//GEN-END:variables
 }
