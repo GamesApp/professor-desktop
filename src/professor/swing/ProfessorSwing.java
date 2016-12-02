@@ -33,8 +33,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbPontuacaoTotal = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLbCorTurma = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         jLbQntAlunosTurma = new javax.swing.JLabel();
@@ -156,31 +154,20 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/school.png"))); // NOI18N
         jLabel7.setText("Curso:");
         jPHome.add(jLabel7);
-        jLabel7.setBounds(280, 220, 90, 24);
-
-        jLbCorTurma.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        jLbCorTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLbCorTurma.setText("Laranja");
-        jPHome.add(jLbCorTurma);
-        jLbCorTurma.setBounds(490, 250, 100, 20);
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/slack.png"))); // NOI18N
-        jLabel9.setText("Cor da turma:");
-        jPHome.add(jLabel9);
-        jLabel9.setBounds(280, 250, 130, 24);
+        jLabel7.setBounds(280, 230, 90, 24);
         jPHome.add(jSeparator1);
         jSeparator1.setBounds(220, 340, 720, 20);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/emoticon-cool.png"))); // NOI18N
         jLabel11.setText("Quantidade de alunos: ");
         jPHome.add(jLabel11);
-        jLabel11.setBounds(280, 280, 200, 24);
+        jLabel11.setBounds(280, 260, 200, 24);
 
         jLbQntAlunosTurma.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
         jLbQntAlunosTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbQntAlunosTurma.setText("34");
         jPHome.add(jLbQntAlunosTurma);
-        jLbQntAlunosTurma.setBounds(550, 280, 40, 20);
+        jLbQntAlunosTurma.setBounds(550, 260, 40, 20);
 
         jListaTurmas.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jListaTurmas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -247,7 +234,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbCursoTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbCursoTurma.setText("Informática");
         jPHome.add(jLbCursoTurma);
-        jLbCursoTurma.setBounds(490, 220, 100, 20);
+        jLbCursoTurma.setBounds(490, 230, 100, 20);
         jPHome.add(jSeparator9);
         jSeparator9.setBounds(210, 180, 720, 20);
 
@@ -758,7 +745,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbPontuacaoTotalTurma.setText("");
         jLbColocacaoRankingTurma.setText("");
         jLbCursoTurma.setText("");
-        jLbCorTurma.setText("");
         jLbQntAlunosTurma.setText("");
     
     
@@ -850,10 +836,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLbCodTurma;
     private javax.swing.JLabel jLbColocacaoRankingTurma;
-    private javax.swing.JLabel jLbCorTurma;
     private javax.swing.JLabel jLbCursoTurma;
     private javax.swing.JLabel jLbDataConcluidas;
     private javax.swing.JLabel jLbDataEmAndamento;
