@@ -69,8 +69,7 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jTFNomeAtividade" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" max="32767" attributes="0"/>
-                                  <Component id="jTFLocal" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFHora" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFLocalAtividade" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jDCData" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -86,6 +85,7 @@
                                           <Component id="jTFPontuacaoTerceiro" min="-2" pref="263" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Component id="jTFHoraAtividade" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
@@ -118,9 +118,9 @@
                               <Component id="jLabel14" max="32767" attributes="0"/>
                               <Component id="jLabel13" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCBPrimeiroLugar" alignment="0" pref="212" max="32767" attributes="0"/>
+                              <Component id="jCBPrimeiroLugar" alignment="0" pref="216" max="32767" attributes="0"/>
                               <Component id="jCBSegundoLugar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jCBTerceiroLugar" alignment="0" pref="212" max="32767" attributes="0"/>
+                              <Component id="jCBTerceiroLugar" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -148,14 +148,14 @@
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <Component id="jDCData" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTFHora" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTFLocal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTFHoraAtividade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTFLocalAtividade" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -198,10 +198,10 @@
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jCBTerceiroLugar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                  <Component id="jBSalvar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jBExcluir" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                  <Component id="jBSalvar" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jBExcluir" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -265,17 +265,7 @@
             <Property name="text" type="java.lang.String" value="Local: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFLocal">
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jTFHora">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="1" type="2"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFHoraKeyTyped"/>
-          </Events>
+        <Component class="javax.swing.JTextField" name="jTFLocalAtividade">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -474,6 +464,7 @@
             <Property name="text" type="java.lang.String" value="Em andamento"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRBEmAndamentoMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRBEmAndamentoActionPerformed"/>
           </Events>
         </Component>
@@ -483,6 +474,16 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Conclu&#xed;da"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRBConcluidaMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="jTFHoraAtividade">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+              <Format subtype="1" type="2"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>

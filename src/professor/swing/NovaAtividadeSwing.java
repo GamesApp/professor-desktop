@@ -5,6 +5,7 @@
  */
 package professor.swing;
 
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,8 +38,7 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTFLocal = new javax.swing.JTextField();
-        jTFHora = new javax.swing.JFormattedTextField();
+        jTFLocalAtividade = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -61,6 +61,7 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
         jDCData = new com.toedter.calendar.JDateChooser();
         jRBEmAndamento = new javax.swing.JRadioButton();
         jRBConcluida = new javax.swing.JRadioButton();
+        jTFHoraAtividade = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nova Atividade");
@@ -92,13 +93,6 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/map-marker.png"))); // NOI18N
         jLabel5.setText("Local: ");
-
-        jTFHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
-        jTFHora.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFHoraKeyTyped(evt);
-            }
-        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/trophy-variant.png"))); // NOI18N
         jLabel6.setText("Pontuação: ");
@@ -184,6 +178,11 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
 
         buttonGroup1.add(jRBEmAndamento);
         jRBEmAndamento.setText("Em andamento");
+        jRBEmAndamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRBEmAndamentoMouseClicked(evt);
+            }
+        });
         jRBEmAndamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRBEmAndamentoActionPerformed(evt);
@@ -192,6 +191,13 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
 
         buttonGroup1.add(jRBConcluida);
         jRBConcluida.setText("Concluída");
+        jRBConcluida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRBConcluidaMouseClicked(evt);
+            }
+        });
+
+        jTFHoraAtividade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -214,8 +220,7 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTFNomeAtividade)
                                 .addComponent(jScrollPane1)
-                                .addComponent(jTFLocal)
-                                .addComponent(jTFHora)
+                                .addComponent(jTFLocalAtividade)
                                 .addComponent(jDCData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(12, 12, 12)
@@ -227,7 +232,8 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTFPontuacaoPrimeiro, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTFPontuacaoSegundo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTFPontuacaoTerceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jTFPontuacaoTerceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTFHoraAtividade, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
                                 .addComponent(jRBEmAndamento)
@@ -252,9 +258,9 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCBPrimeiroLugar, 0, 212, Short.MAX_VALUE)
+                            .addComponent(jCBPrimeiroLugar, 0, 216, Short.MAX_VALUE)
                             .addComponent(jCBSegundoLugar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCBTerceiroLugar, 0, 212, Short.MAX_VALUE))
+                            .addComponent(jCBTerceiroLugar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -274,13 +280,13 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(jDCData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTFHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTFLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTFHoraAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFLocalAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -317,10 +323,10 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCBTerceiroLugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
-                .addComponent(jBSalvar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBExcluir)
+                .addGap(89, 89, 89)
+                .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -333,40 +339,43 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
 
     private void jBExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirActionPerformed
         // TODO add your handling code here:
-        int resp = Integer.parseInt(JOptionPane.showInputDialog("Deseja excluir o cadastro?\n1 - Sim\n2 - Não"));
-        if(resp==1){
+        int resp = JOptionPane.showConfirmDialog(null, "Deseja excluir a atividade?", "Excluir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (resp == JOptionPane.YES_OPTION) {
+            //delete no banco
             this.dispose();
         }
     }//GEN-LAST:event_jBExcluirActionPerformed
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-        // TODO add your handling code here:
-        int resp = Integer.parseInt(JOptionPane.showInputDialog("Deseja salvar a nova atividade?\n1 - Sim\n2 - Não"));
-        if(resp==1){
-            JOptionPane.showMessageDialog(null, "Inserir no banco");
+       java.util.Date pega = jDCData.getDate();
+       SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+       String data = formato.format(pega);
+        
+        if (!jTFNomeAtividade.getText().equals("") && !jTADescricaoAtividade.getText().equals("") && !jTFHoraAtividade.getText().equals("") && !jTFLocalAtividade.getText().equals("") && !data.equals("") && !jTFPontuacaoPrimeiro.getText().equals("") && !jTFPontuacaoSegundo.getText().equals("") && !jTFPontuacaoTerceiro.getText().equals("")) {
+            if (jRBConcluida.isSelected() || jRBEmAndamento.isSelected()) {
+                //salva no banco
+                
+                
+                
+                
+                if (jRBConcluida.isSelected()) {
+                    //verificar os vencedores
+                    //atualizar ranking
+                    
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Favor informe a situação da atividade", "Atenção!", JOptionPane.WARNING_MESSAGE);
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Favor preencha todos os campos!", "Atenção!", JOptionPane.WARNING_MESSAGE);
         }
+        
     }//GEN-LAST:event_jBSalvarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        /*if (jCBSituacao.getSelectedIndex()==1 || jCBSituacao.getSelectedIndex()==2) {
-            jTFPrimeiroLugar.enable(false);
-            jTFSegundoLugar.enable(false);
-            jTFTerceiroLugar.enable(false);
-        }else{
-            jTFPrimeiroLugar.enable(true);
-            jTFSegundoLugar.enable(true);
-            jTFTerceiroLugar.enable(true);
-        }*/
+        
     }//GEN-LAST:event_formWindowOpened
-
-    private void jTFHoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFHoraKeyTyped
-         // aceita somente numeros
-        String caracteres = "0987654321:";
-        if (!caracteres.contains(evt.getKeyChar()+"")) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTFHoraKeyTyped
 
     private void jTFPontuacaoPrimeiroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPontuacaoPrimeiroKeyTyped
         // aceita somente numeros
@@ -395,6 +404,18 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
     private void jRBEmAndamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBEmAndamentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRBEmAndamentoActionPerformed
+
+    private void jRBEmAndamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRBEmAndamentoMouseClicked
+        jCBPrimeiroLugar.enable(false);
+        jCBSegundoLugar.enable(false);
+        jCBTerceiroLugar.enable(false);
+    }//GEN-LAST:event_jRBEmAndamentoMouseClicked
+
+    private void jRBConcluidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRBConcluidaMouseClicked
+        jCBPrimeiroLugar.enable(true);
+        jCBSegundoLugar.enable(true);
+        jCBTerceiroLugar.enable(true);
+    }//GEN-LAST:event_jRBConcluidaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -425,8 +446,8 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTADescricaoAtividade;
-    private javax.swing.JFormattedTextField jTFHora;
-    private javax.swing.JTextField jTFLocal;
+    private javax.swing.JFormattedTextField jTFHoraAtividade;
+    private javax.swing.JTextField jTFLocalAtividade;
     private javax.swing.JTextField jTFNomeAtividade;
     private javax.swing.JTextField jTFPontuacaoPrimeiro;
     private javax.swing.JTextField jTFPontuacaoSegundo;

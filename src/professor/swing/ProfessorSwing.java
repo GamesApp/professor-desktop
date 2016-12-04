@@ -417,7 +417,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
             }
         });
         jPEmAndamento.add(jBEditar);
-        jBEditar.setBounds(740, 420, 150, 30);
+        jBEditar.setBounds(740, 420, 150, 28);
 
         jTBFundo.addTab("Em andamento", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/update.png")), jPEmAndamento); // NOI18N
 
