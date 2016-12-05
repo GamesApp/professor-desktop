@@ -31,7 +31,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPHome = new javax.swing.JPanel();
         jLbCodTurma = new javax.swing.JLabel();
         jLbPontuacaoTotal = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
@@ -50,9 +49,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbCursoTurma = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPAtividades = new javax.swing.JPanel();
         jTBFundo = new javax.swing.JTabbedPane();
         jPEmAndamento = new javax.swing.JPanel();
@@ -146,11 +142,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPHome.add(jLbPontuacaoTotal);
         jLbPontuacaoTotal.setBounds(560, 130, 50, 30);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/trophy-award.png"))); // NOI18N
-        jLabel5.setText("Últimas atividades ganhas:");
-        jPHome.add(jLabel5);
-        jLabel5.setBounds(280, 370, 230, 30);
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/school.png"))); // NOI18N
         jLabel7.setText("Curso:");
         jPHome.add(jLabel7);
@@ -242,21 +233,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLabel6.setText("Colocação no Ranking: ");
         jPHome.add(jLabel6);
         jLabel6.setBounds(280, 130, 186, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/star-outline (1).png"))); // NOI18N
-        jLabel2.setText("Aqui vai o nome da última atividade que aturma ganhou");
-        jPHome.add(jLabel2);
-        jLabel2.setBounds(360, 450, 400, 20);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/star-outline (1).png"))); // NOI18N
-        jLabel3.setText("Aqui vai o nome da última atividade que aturma ganhou");
-        jPHome.add(jLabel3);
-        jLabel3.setBounds(360, 407, 400, 20);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/star-outline (1).png"))); // NOI18N
-        jLabel4.setText("Aqui vai o nome da última atividade que aturma ganhou");
-        jPHome.add(jLabel4);
-        jLabel4.setBounds(360, 430, 400, 20);
 
         jTFundo.addTab("Home", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/home.png")), jPHome); // NOI18N
 
@@ -809,19 +785,15 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JButton jBEditar;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;

@@ -6,6 +6,7 @@
 package professor.swing;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -197,7 +198,11 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
             }
         });
 
-        jTFHoraAtividade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
+        try {
+            jTFHoraAtividade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -347,11 +352,19 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jBExcluirActionPerformed
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-       java.util.Date pega = jDCData.getDate();
-       SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-       String data = formato.format(pega);
+        String data="";
+        if (jDCData.getDate()!=null) {
+            Date pega = jDCData.getDate();
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            data = formato.format(pega);
+            System.out.println(data);
+        }else{
+            JOptionPane.showMessageDialog(null, "Favor preencha todos os campos!", "Atenção!", JOptionPane.WARNING_MESSAGE);
+        }
+       
+       System.out.println(jTFHoraAtividade.getText());
         
-        if (!jTFNomeAtividade.getText().equals("") && !jTADescricaoAtividade.getText().equals("") && !jTFHoraAtividade.getText().equals("") && !jTFLocalAtividade.getText().equals("") && !data.equals("") && !jTFPontuacaoPrimeiro.getText().equals("") && !jTFPontuacaoSegundo.getText().equals("") && !jTFPontuacaoTerceiro.getText().equals("")) {
+       if (!jTFNomeAtividade.getText().equals("") && !jTADescricaoAtividade.getText().equals("") && !jTFHoraAtividade.getText().equals("") && !jTFLocalAtividade.getText().equals("") && !data.equals("") && !jTFPontuacaoPrimeiro.getText().equals("") && !jTFPontuacaoSegundo.getText().equals("") && !jTFPontuacaoTerceiro.getText().equals("")) {
             if (jRBConcluida.isSelected() || jRBEmAndamento.isSelected()) {
                 //salva no banco
                 
