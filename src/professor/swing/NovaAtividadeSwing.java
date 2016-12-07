@@ -5,8 +5,17 @@
  */
 package professor.swing;
 
+import conexaodb.RequisicaoHttp;
+import entidades.atividade.Atividade;
+import entidades.atividade.Classificacao;
+import entidades.atividade.Endereco;
+import entidades.atividade.Pontuacao;
+import entidades.turma.Turma;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,9 +24,9 @@ import javax.swing.JOptionPane;
  */
 public class NovaAtividadeSwing extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NovaAtividadeSwing
-     */
+    ArrayList<Turma> turmas;
+    ArrayList<String> idTurmas;
+    
     public NovaAtividadeSwing() {
         initComponents();
         
@@ -85,6 +94,7 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
         jLabel2.setText("Descrição: ");
 
         jTADescricaoAtividade.setColumns(20);
+        jTADescricaoAtividade.setLineWrap(true);
         jTADescricaoAtividade.setRows(5);
         jScrollPane1.setViewportView(jTADescricaoAtividade);
 
@@ -177,13 +187,13 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
         jLabel15.setText("Nova Atividade");
 
         jCBTerceiroLugar.setBackground(new java.awt.Color(254, 252, 251));
-        jCBTerceiroLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBTerceiroLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher..." }));
 
         jCBSegundoLugar.setBackground(new java.awt.Color(254, 252, 251));
-        jCBSegundoLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBSegundoLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher..." }));
 
         jCBPrimeiroLugar.setBackground(new java.awt.Color(254, 252, 251));
-        jCBPrimeiroLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBPrimeiroLugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher..." }));
 
         buttonGroup1.add(jRBEmAndamento);
         jRBEmAndamento.setText("Em andamento");
@@ -387,45 +397,108 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
     }
     
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-        String data = "", dataNum = "";
-        if (jDCData.getDate()!=null) {
+        String data = "";
+        if (jDCData.getDate() != null) {
             Date pega = jDCData.getDate();
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             data = formato.format(pega);
             System.out.println(data);
             //DATA SEM CARACTERE
-            dataNum = dataNum(data);
-            System.out.println("data sem caractere: "+dataNum(data));
-        }else{
+            //dataNum = dataNum(data);
+            //System.out.println("data sem caractere: "+dataNum(data));
+        } else {
             JOptionPane.showMessageDialog(null, "Favor preencha todos os campos!", "Atenção!", JOptionPane.WARNING_MESSAGE);
         }
-       
-       System.out.println(jTFHoraAtividade.getText());
-        
-       if (!jTFNomeAtividade.getText().equals("") && !jTADescricaoAtividade.getText().equals("") && !jTFHoraAtividade.getText().equals("") && !jTFLocalAtividade.getText().equals("") && !data.equals("") && !jTFPontuacaoPrimeiro.getText().equals("") && !jTFPontuacaoSegundo.getText().equals("") && !jTFPontuacaoTerceiro.getText().equals("")) {
+
+        if (!jTFNomeAtividade.getText().equals("") && !jTADescricaoAtividade.getText().equals("") && !jTFHoraAtividade.getText().equals("") && !jTFLocalAtividade.getText().equals("") && !data.equals("") && !jTFPontuacaoPrimeiro.getText().equals("") && !jTFPontuacaoSegundo.getText().equals("") && !jTFPontuacaoTerceiro.getText().equals("")) {
             if (jRBConcluida.isSelected() || jRBEmAndamento.isSelected()) {
                 //salva no banco
-                
-                
-                
-                
                 if (jRBConcluida.isSelected()) {
-                    //verificar os vencedores
-                    //atualizar ranking
+                    Atividade atividade = new Atividade();
+                    atividade.setSituacao("Concluida");
+                    atividade.setNome(jTFNomeAtividade.getText());
+                    atividade.setDescricao(jTADescricaoAtividade.getText());
+                    atividade.setData(data);
+                    atividade.setHora(jTFHoraAtividade.getText());
+                    atividade.setEndereco(new Endereco("Rua teste", "Bairro teste", 9999, jCBComplemento.getSelectedItem().toString()));
+                    atividade.setPontuacao(new Pontuacao(
+                            Long.parseLong(jTFPontuacaoPrimeiro.getText()),
+                            Long.parseLong(jTFPontuacaoSegundo.getText()),
+                            Long.parseLong(jTFPontuacaoTerceiro.getText())));
+                    atividade.setClassificacao(new Classificacao(
+                            String.valueOf(jCBPrimeiroLugar.getSelectedItem()),
+                            String.valueOf(jCBSegundoLugar.getSelectedItem()),
+                            String.valueOf(jCBTerceiroLugar.getSelectedItem())));
                     
+                    //System.out.println("index: " + jCBPrimeiroLugar.getSelectedIndex());
+                    //System.out.println(turmas.toString());
+                    
+                    CalculaTotalPontosTurma(jCBPrimeiroLugar.getSelectedIndex(), atividade.getPontuacao().getPrimeiro());
+                    CalculaTotalPontosTurma(jCBSegundoLugar.getSelectedIndex(), atividade.getPontuacao().getSegundo());
+                    CalculaTotalPontosTurma(jCBTerceiroLugar.getSelectedIndex(), atividade.getPontuacao().getTerceiro());
+                    
+                    try {
+                        new RequisicaoHttp().insertAtividade(atividade);
+                    } catch (Exception ex) {
+                        Logger.getLogger(NovaAtividadeSwing.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    Atividade atividade = new Atividade();
+                    atividade.setSituacao("Em andamento");
+                    atividade.setNome(jTFNomeAtividade.getText());
+                    atividade.setDescricao(jTADescricaoAtividade.getText());
+                    atividade.setData(data);
+                    atividade.setHora(jTFHoraAtividade.getText());
+                    atividade.setEndereco(new Endereco("Rua teste", "Bairro teste", 9999, jCBComplemento.getSelectedItem().toString()));
+                    atividade.setPontuacao(new Pontuacao(
+                            Long.parseLong(jTFPontuacaoPrimeiro.getText()),
+                            Long.parseLong(jTFPontuacaoSegundo.getText()),
+                            Long.parseLong(jTFPontuacaoTerceiro.getText())));
+                    try {
+                        new RequisicaoHttp().insertAtividade(atividade);
+                    } catch (Exception ex) {
+                        Logger.getLogger(NovaAtividadeSwing.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Favor informe a situação da atividade", "Atenção!", JOptionPane.WARNING_MESSAGE);
             }
-            
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Favor preencha todos os campos!", "Atenção!", JOptionPane.WARNING_MESSAGE);
         }
         
     }//GEN-LAST:event_jBSalvarActionPerformed
-
+    public void CalculaTotalPontosTurma (int index, long pontosAtividade) {
+        if (index != 0) {
+            index --;
+            long pontosAtuais = turmas.get(index).getPontos();
+            long pontosTotais = pontosAtuais + pontosAtividade;
+            
+            System.out.println("Total pontos: " + pontosTotais);
+            System.out.println("Index: " + index);
+            
+            turmas.get(index).setPontos(pontosTotais);
+            
+            
+            //CHAMAR MÉTODO DE ALTERAR TURMA E COLOCAR ESSE VALOR NA PONTUAÇÃO DELA
+        }
+    }
+    
+    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            turmas = new RequisicaoHttp().getTurmaTodas();
+        } catch (Exception ex) {
+            Logger.getLogger(NovaAtividadeSwing.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+        //idTurmas = new ArrayList<>();
+            
+        for (int i = 0; i < turmas.size(); i++) {
+            jCBPrimeiroLugar.addItem(turmas.get(i).getNome());
+            jCBSegundoLugar.addItem(turmas.get(i).getNome());
+            jCBTerceiroLugar.addItem(turmas.get(i).getNome());
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void jTFPontuacaoPrimeiroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPontuacaoPrimeiroKeyTyped
