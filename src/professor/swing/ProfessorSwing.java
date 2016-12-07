@@ -1,6 +1,11 @@
 
 package professor.swing;
 
+import conexaodb.RequisicaoHttp;
+import entidades.atividade.Atividade;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -656,17 +661,22 @@ public class ProfessorSwing extends javax.swing.JFrame {
  
        //Lista de turmas HOME
         DefaultListModel listaTurma = new DefaultListModel();
-        for (int i = 0; i < 10; i++) {
+        try {
+            /*for (int i = 0; i < 10; i++) {
             listaTurma.addElement("INF4AM: " + i);
-        }
+            }*/
+            //ArrayList<Atividade> atividades = new RequisicaoHttp().getAtividadeTodas();
+        
         jListaTurmas.setModel(listaTurma);
         
-        
+        } catch (Exception ex) {
+            Logger.getLogger(ProfessorSwing.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //tabela do ranking
         DefaultTableModel model = (DefaultTableModel)jTRanking.getModel();
-       model.setNumRows(0);
-       //Fazer pesquisa no banco e retornar todas as turmas e sua pontuação em ordem decrescebte
-       model.addRow(new Object[] {"INF4AM", "5000"});
+        model.setNumRows(0);
+        //Fazer pesquisa no banco e retornar todas as turmas e sua pontuação em ordem decrescebte
+        model.addRow(new Object[] {"INF4AM", "5000"});
       
     }//GEN-LAST:event_formWindowOpened
 
