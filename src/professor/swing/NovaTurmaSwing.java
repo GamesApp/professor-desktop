@@ -5,9 +5,13 @@
  */
 package professor.swing;
 
+import conexaodb.RequisicaoHttp;
+import entidades.turma.Turma;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -260,25 +264,42 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jListaAlunosTurmaMouseClicked
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-        //lista dos alunos
-        ArrayList<String> lista = new ArrayList<>();
-        int tamanho = jListaAlunosTurma.getModel().getSize();
         
-        for (int i = 0; i < tamanho; i++) {
-            lista.add(jListaAlunosTurma.getModel().getElementAt(i));
-        }
         
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(lista.get(i));
-        }
         
         //salvar turma no banco
         
-        if (!jTFNomeTurma.getText().equals("") && jYCAnoInicialTurma.getYear()!=0 && !jTFPontuacaoTurma.getText().equals("") && jCBCursoTurma.getSelectedIndex()!=0 ) {
+        if (!jTFNomeTurma.getText().equals("") && jYCAnoInicialTurma.getYear()!=0 && !jTFPontuacaoTurma.getText().equals("") && jCBCursoTurma.getSelectedIndex() != 0 ) {
             if (jListaAlunosTurma.getModel().getSize()!= 0) {
                 //alunos inscritos
+                Turma turma = new Turma();
+                turma.setNome(jTFNomeTurma.getText());
+                turma.setAnoInicio(jYCAnoInicialTurma.getYear());
                 
-                //salvar turma no banco
+                if (jCBCursoTurma.getSelectedIndex() == 1) {
+                    turma.setCurso("Informatica");
+                }
+                else if (jCBCursoTurma.getSelectedIndex() == 2) {
+                    turma.setCurso("Refrigeracao");
+                }
+                
+                turma.setPontos(Long.parseLong(jTFPontuacaoTurma.getText()));
+                
+                //lista dos alunos
+                ArrayList<String> listaAlunos = new ArrayList<>();
+                int tamanho = jListaAlunosTurma.getModel().getSize();
+        
+                for (int i = 0; i < tamanho; i++) {
+                    listaAlunos.add(jListaAlunosTurma.getModel().getElementAt(i));
+                }
+                turma.setAlunos(listaAlunos);
+                
+                try {
+                    //salvar turma no banco
+                    new RequisicaoHttp().insertTurma(turma);
+                } catch (Exception ex) {
+                    Logger.getLogger(NovaTurmaSwing.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
             }else{
                 JOptionPane.showMessageDialog(null, "Favor inserir alunos na turma!", "Atenção!", JOptionPane.WARNING_MESSAGE);

@@ -161,7 +161,7 @@ public class RequisicaoHttp {
         
         String turmaJson = gson.toJson(turma, turmaType);
         
-        System.out.println("Atividade Json: " + turmaJson);
+        System.out.println("Turma Json: " + turmaJson);
         
         new RequisicaoHttp().sendPost(url, turmaJson);
     }

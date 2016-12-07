@@ -3,6 +3,7 @@ package professor.swing;
 
 import conexaodb.RequisicaoHttp;
 import entidades.atividade.Atividade;
+import entidades.pessoa.Professor;
 import entidades.turma.Turma;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -20,16 +21,22 @@ public class ProfessorSwing extends javax.swing.JFrame {
     ArrayList<Atividade> atividadesAndamento;
     ArrayList<Atividade> atividadesConcluidas;
     ArrayList<String> idTurmas;
+    Professor professor;
     
-    public ProfessorSwing() {
+    public ProfessorSwing(Professor professor) {
         initComponents();
         
+        //Usar esse professor para alterar a senha
+        this.professor = professor;
         atividadesAndamento = new ArrayList<>();
         atividadesConcluidas = new ArrayList<>();
         
         setSize(934, 565);
         setLocationRelativeTo(null);
-        
+    }
+
+    private ProfessorSwing() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -813,7 +820,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         
-        new AlterarSenhaSwing().setVisible(true);
+        new AlterarSenhaSwing(professor).setVisible(true);
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

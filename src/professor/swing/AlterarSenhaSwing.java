@@ -7,6 +7,7 @@ package professor.swing;
 
 import Criptografia.CodCifraDeVigenere;
 import Criptografia.ExemploCriptografia;
+import entidades.pessoa.Professor;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,8 +16,12 @@ import javax.swing.JOptionPane;
  */
 public class AlterarSenhaSwing extends javax.swing.JFrame {
 
-    public AlterarSenhaSwing() {
+    Professor professor;
+    
+    public AlterarSenhaSwing(Professor professor) {
         initComponents();
+        
+        this.professor = professor;
         
         setSize(700,500);
         setLocationRelativeTo(null);
@@ -203,22 +208,23 @@ public class AlterarSenhaSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jLbInfoMouseClicked
 
     private void jBSalvarNovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarNovaSenhaActionPerformed
-       String senhaAtual = String.valueOf(jPFSenhaAtualProfessor.getPassword());
+        String senhaAtual = String.valueOf(jPFSenhaAtualProfessor.getPassword());
        
-       //cifra senha atual informada
-       ExemploCriptografia criptografarSenhaInformada = new ExemploCriptografia();
-       String SenhaCriptografada = criptografarSenhaInformada.GeraCriptografia(senhaAtual, 1);
-       
-        if (SenhaCriptografada.equals("cF^IJ/cZM\\")) {//pegar senha no banco do respectivo professor
+        //cifra senha atual informada
+        ExemploCriptografia criptografarSenhaInformada = new ExemploCriptografia();
+        String SenhaCriptografada = criptografarSenhaInformada.GeraCriptografia(senhaAtual, 1);
+        
+        if (SenhaCriptografada.equals(professor.getSenha())) {//pegar senha no banco do respectivo professor
             if (String.valueOf(jPFNovaSenhaProfessor.getPassword()).equals(String.valueOf(jPFConfirmaNovaSenhaProfessor.getPassword()))) {
                 String novaSenha = String.valueOf(jPFNovaSenhaProfessor.getPassword());
                 
                 ExemploCriptografia ex = new ExemploCriptografia();
                 String NovaSenhaCriptografada = ex.GeraCriptografia(novaSenha, 1);
                 
-                //set no banco com a nova senha
+                professor.setSenha(NovaSenhaCriptografada);
+                //Alterar no banco
                 
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Os campos de nova senha não coincidem!");
                 jPFNovaSenhaProfessor.setText("");
                 jPFConfirmaNovaSenhaProfessor.setText("");
