@@ -20,23 +20,29 @@ import javax.swing.JOptionPane;
  * @author gabrieli
  */
 public class NovaTurmaSwing extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NovaTurma
-     */
-    public NovaTurmaSwing() {
+ 
+        public NovaTurmaSwing(int num) {
         initComponents();
         
         setSize(700,500);
         setLocationRelativeTo(null);
+        
+            if (num==1) {
+                //edição
+                jLBNovaTurma.setText("Editar Turma");
+            }else if (num==2){
+                //nova turma
+                jLBNovaTurma.setText("Nova Turma");
+            }
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        jLBNovaTurma = new javax.swing.JLabel();
         jLbNomeTurma = new javax.swing.JLabel();
         jTFNomeTurma = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -50,8 +56,8 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTFMatriculaAluno = new javax.swing.JTextField();
-        jBSalvar = new javax.swing.JButton();
-        jBCancelar = new javax.swing.JButton();
+        jBSalvarTurma = new javax.swing.JButton();
+        jBExcluirTurma = new javax.swing.JButton();
         jYCAnoInicialTurma = new com.toedter.calendar.JYearChooser();
         jLExcluirAluno = new javax.swing.JLabel();
         jLEnviarMatAluno = new javax.swing.JLabel();
@@ -60,10 +66,10 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(253, 252, 251));
 
-        jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/school.png"))); // NOI18N
-        jLabel15.setText("Nova Turma");
+        jLBNovaTurma.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLBNovaTurma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLBNovaTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/school.png"))); // NOI18N
+        jLBNovaTurma.setText("Nova Turma");
 
         jLbNomeTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/format-annotation-plus.png"))); // NOI18N
         jLbNomeTurma.setText("Nome: ");
@@ -101,23 +107,23 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
             }
         });
 
-        jBSalvar.setBackground(new java.awt.Color(1, 1, 1));
-        jBSalvar.setForeground(new java.awt.Color(255, 250, 250));
-        jBSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/content-save.png"))); // NOI18N
-        jBSalvar.setText("Salvar");
-        jBSalvar.addActionListener(new java.awt.event.ActionListener() {
+        jBSalvarTurma.setBackground(new java.awt.Color(1, 1, 1));
+        jBSalvarTurma.setForeground(new java.awt.Color(255, 250, 250));
+        jBSalvarTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/content-save.png"))); // NOI18N
+        jBSalvarTurma.setText("Salvar");
+        jBSalvarTurma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBSalvarActionPerformed(evt);
+                jBSalvarTurmaActionPerformed(evt);
             }
         });
 
-        jBCancelar.setBackground(new java.awt.Color(1, 1, 1));
-        jBCancelar.setForeground(new java.awt.Color(255, 250, 250));
-        jBCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/delete.png"))); // NOI18N
-        jBCancelar.setText("Cancelar");
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+        jBExcluirTurma.setBackground(new java.awt.Color(1, 1, 1));
+        jBExcluirTurma.setForeground(new java.awt.Color(255, 250, 250));
+        jBExcluirTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/delete.png"))); // NOI18N
+        jBExcluirTurma.setText("Excluir");
+        jBExcluirTurma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
+                jBExcluirTurmaActionPerformed(evt);
             }
         });
 
@@ -140,15 +146,15 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLBNovaTurma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(55, 55, 55))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBSalvarTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
-                        .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jBExcluirTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -189,7 +195,7 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel15)
+                .addComponent(jLBNovaTurma)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -224,8 +230,8 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
                                         .addComponent(jTFMatriculaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jBSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jBSalvarTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBExcluirTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(45, 45, 45))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLExcluirAluno)
@@ -247,9 +253,9 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     DefaultListModel listaAlunos = new DefaultListModel();
     
-    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
+    private void jBExcluirTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirTurmaActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jBCancelarActionPerformed
+    }//GEN-LAST:event_jBExcluirTurmaActionPerformed
 
     private void jListaAlunosTurmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaAlunosTurmaMouseClicked
         // TODO add your handling code here:
@@ -263,7 +269,7 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jListaAlunosTurmaMouseClicked
 
-    private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
+    private void jBSalvarTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarTurmaActionPerformed
         
         
         
@@ -307,7 +313,7 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Favor informar todos os campos!", "Atenção!", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jBSalvarActionPerformed
+    }//GEN-LAST:event_jBSalvarTurmaActionPerformed
 
     private void jTFMatriculaAlunoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFMatriculaAlunoKeyTyped
         // aceita somente numeros
@@ -339,13 +345,13 @@ public class NovaTurmaSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jLEnviarMatAlunoMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBCancelar;
-    private javax.swing.JButton jBSalvar;
+    private javax.swing.JButton jBExcluirTurma;
+    private javax.swing.JButton jBSalvarTurma;
     private javax.swing.JComboBox<String> jCBCursoTurma;
+    private javax.swing.JLabel jLBNovaTurma;
     private javax.swing.JLabel jLEnviarMatAluno;
     private javax.swing.JLabel jLExcluirAluno;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
