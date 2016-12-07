@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import entidades.atividade.Atividade;
 import entidades.pessoa.Aluno;
 import entidades.pessoa.Professor;
+import entidades.turma.Turma;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -110,7 +111,7 @@ public class RequisicaoHttp {
         new RequisicaoHttp().sendPost(url, alunoJson);
     }
     
-    //Método para inserir um novo professor
+    //Método para inserir uma nova atividade
     public void insertAtividade(Atividade atividade) throws Exception {
         String url = "http://" + IP +
                 ":8080/web-service/webresources/GamesApp/Atividade/insert";
@@ -147,6 +148,46 @@ public class RequisicaoHttp {
             atividades = null;
             
             return atividades;
+        }
+    }
+    
+    //Método para inserir uma nova turma
+    public void insertTurma(Turma turma) throws Exception {
+        String url = "http://" + IP +
+                ":8080/web-service/webresources/GamesApp/Turma/insert";
+        
+        Gson gson = new Gson();
+        Type turmaType = new TypeToken<Turma>() {}.getType();
+        
+        String turmaJson = gson.toJson(turma, turmaType);
+        
+        System.out.println("Atividade Json: " + turmaJson);
+        
+        new RequisicaoHttp().sendPost(url, turmaJson);
+    }
+    
+    //Método para buscar todas as turmas
+    public ArrayList<Turma> getTurmaTodas() throws Exception {
+        //http://localhost:8080/web-service/webresources/GamesApp/Atividade/get/todas
+        String url = "http://" + IP +
+                ":8080/web-service/webresources/GamesApp/Turma/get/todas";
+        
+        String retornoJson = new RequisicaoHttp().sendGet(url);
+        ArrayList<Turma> turmas;
+        
+        if (!retornoJson.equals("")) {
+            turmas = new ArrayList<>();
+            Gson gson = new Gson();
+            
+            Type turmaType = new TypeToken<ArrayList<Turma>>() {}.getType();
+            
+            turmas = gson.fromJson(retornoJson, turmaType);
+            
+            return turmas;
+        } else {
+            turmas = null;
+            
+            return turmas;
         }
     }
 
