@@ -58,8 +58,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         jListaTurmas = new javax.swing.JList<>();
         jSeparator8 = new javax.swing.JSeparator();
-        jTFPesquisar = new javax.swing.JTextField();
-        jLabel57 = new javax.swing.JLabel();
         jLbNomeTurma = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
         jLbPontuacaoTotal1 = new javax.swing.JLabel();
@@ -69,13 +67,12 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         jBEditarTurma = new javax.swing.JButton();
         jLbAtualizarListaTurmas = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPAtividades = new javax.swing.JPanel();
         jTBFundo = new javax.swing.JTabbedPane();
         jPEmAndamento = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListaAtividadesAndamento = new javax.swing.JList<>();
-        jTFPesquisarEmAndamento = new javax.swing.JTextField();
-        imagemLupa = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLbNomeAtividadeEmAndamento = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -100,10 +97,9 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         jLbHoraEmAndamento = new javax.swing.JLabel();
         jBEditarAtividade = new javax.swing.JButton();
-        jLbAtualizarListaAtividadesAndamento = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLbAtualizarListaTurmas1 = new javax.swing.JLabel();
         jPConcluidas = new javax.swing.JPanel();
-        jLabel48 = new javax.swing.JLabel();
-        jTFPesquisarConcluidas = new javax.swing.JTextField();
         jScrollPane8 = new javax.swing.JScrollPane();
         jListaAtividadesConcluidas = new javax.swing.JList<>();
         jSeparator5 = new javax.swing.JSeparator();
@@ -126,7 +122,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLabel62 = new javax.swing.JLabel();
         jLbHoraConcluidas = new javax.swing.JLabel();
         jLbLocalConcluidas = new javax.swing.JLabel();
-        jLbAtualizarListaAtividadesConcluidas = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLbAtualizarListaTurmas2 = new javax.swing.JLabel();
         jPRanking = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTRanking = new javax.swing.JTable();
@@ -176,7 +173,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbQntAlunosTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbQntAlunosTurma.setText("34");
         jPHome.add(jLbQntAlunosTurma);
-        jLbQntAlunosTurma.setBounds(550, 260, 40, 20);
+        jLbQntAlunosTurma.setBounds(490, 260, 250, 20);
 
         jListaTurmas.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jListaTurmas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -187,26 +184,11 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jScrollPane10.setViewportView(jListaTurmas);
 
         jPHome.add(jScrollPane10);
-        jScrollPane10.setBounds(0, 60, 210, 440);
+        jScrollPane10.setBounds(0, 40, 210, 460);
 
         jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPHome.add(jSeparator8);
         jSeparator8.setBounds(210, 0, 20, 500);
-
-        jTFPesquisar.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jTFPesquisar.setText("Turmas");
-        jTFPesquisar.setPreferredSize(new java.awt.Dimension(92, 27));
-        jTFPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFPesquisarActionPerformed(evt);
-            }
-        });
-        jPHome.add(jTFPesquisar);
-        jTFPesquisar.setBounds(40, 10, 170, 27);
-
-        jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/magnify.png"))); // NOI18N
-        jPHome.add(jLabel57);
-        jLabel57.setBounds(10, 10, 24, 24);
 
         jLbNomeTurma.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLbNomeTurma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -237,7 +219,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbCursoTurma.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbCursoTurma.setText("Informática");
         jPHome.add(jLbCursoTurma);
-        jLbCursoTurma.setBounds(490, 230, 100, 20);
+        jLbCursoTurma.setBounds(490, 230, 250, 20);
         jPHome.add(jSeparator9);
         jSeparator9.setBounds(210, 180, 720, 20);
 
@@ -261,7 +243,12 @@ public class ProfessorSwing extends javax.swing.JFrame {
             }
         });
         jPHome.add(jLbAtualizarListaTurmas);
-        jLbAtualizarListaTurmas.setBounds(170, 36, 40, 24);
+        jLbAtualizarListaTurmas.setBounds(180, 0, 30, 40);
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
+        jLabel1.setText("Turmas");
+        jPHome.add(jLabel1);
+        jLabel1.setBounds(10, 0, 160, 40);
 
         jTFundo.addTab("Home", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/home.png")), jPHome); // NOI18N
 
@@ -289,22 +276,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jListaAtividadesAndamento);
 
         jPEmAndamento.add(jScrollPane3);
-        jScrollPane3.setBounds(0, 60, 210, 410);
-
-        jTFPesquisarEmAndamento.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jTFPesquisarEmAndamento.setText("Atividades");
-        jTFPesquisarEmAndamento.setPreferredSize(new java.awt.Dimension(92, 27));
-        jTFPesquisarEmAndamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFPesquisarEmAndamentoActionPerformed(evt);
-            }
-        });
-        jPEmAndamento.add(jTFPesquisarEmAndamento);
-        jTFPesquisarEmAndamento.setBounds(40, 10, 170, 27);
-
-        imagemLupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/magnify.png"))); // NOI18N
-        jPEmAndamento.add(imagemLupa);
-        imagemLupa.setBounds(10, 10, 24, 24);
+        jScrollPane3.setBounds(0, 40, 210, 430);
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPEmAndamento.add(jSeparator2);
@@ -425,35 +397,25 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPEmAndamento.add(jBEditarAtividade);
         jBEditarAtividade.setBounds(740, 420, 150, 28);
 
-        jLbAtualizarListaAtividadesAndamento.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLbAtualizarListaAtividadesAndamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/autorenew.png"))); // NOI18N
-        jLbAtualizarListaAtividadesAndamento.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
+        jLabel2.setText("Turmas");
+        jPEmAndamento.add(jLabel2);
+        jLabel2.setBounds(10, 0, 160, 40);
+
+        jLbAtualizarListaTurmas1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLbAtualizarListaTurmas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/autorenew.png"))); // NOI18N
+        jLbAtualizarListaTurmas1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLbAtualizarListaAtividadesAndamentoMouseClicked(evt);
+                jLbAtualizarListaTurmas1MouseClicked(evt);
             }
         });
-        jPEmAndamento.add(jLbAtualizarListaAtividadesAndamento);
-        jLbAtualizarListaAtividadesAndamento.setBounds(170, 36, 40, 24);
+        jPEmAndamento.add(jLbAtualizarListaTurmas1);
+        jLbAtualizarListaTurmas1.setBounds(180, 0, 30, 40);
 
         jTBFundo.addTab("Em andamento", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/update.png")), jPEmAndamento); // NOI18N
 
         jPConcluidas.setBackground(new java.awt.Color(254, 250, 247));
         jPConcluidas.setLayout(null);
-
-        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/magnify.png"))); // NOI18N
-        jPConcluidas.add(jLabel48);
-        jLabel48.setBounds(10, 10, 24, 24);
-
-        jTFPesquisarConcluidas.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
-        jTFPesquisarConcluidas.setText("Atividades");
-        jTFPesquisarConcluidas.setPreferredSize(new java.awt.Dimension(92, 27));
-        jTFPesquisarConcluidas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFPesquisarConcluidasActionPerformed(evt);
-            }
-        });
-        jPConcluidas.add(jTFPesquisarConcluidas);
-        jTFPesquisarConcluidas.setBounds(40, 10, 170, 27);
 
         jListaAtividadesConcluidas.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jListaAtividadesConcluidas.setModel(new javax.swing.AbstractListModel<String>() {
@@ -469,7 +431,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jScrollPane8.setViewportView(jListaAtividadesConcluidas);
 
         jPConcluidas.add(jScrollPane8);
-        jScrollPane8.setBounds(0, 60, 210, 410);
+        jScrollPane8.setBounds(0, 40, 210, 430);
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPConcluidas.add(jSeparator5);
@@ -563,15 +525,20 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jPConcluidas.add(jLbLocalConcluidas);
         jLbLocalConcluidas.setBounds(360, 420, 160, 21);
 
-        jLbAtualizarListaAtividadesConcluidas.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLbAtualizarListaAtividadesConcluidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/autorenew.png"))); // NOI18N
-        jLbAtualizarListaAtividadesConcluidas.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
+        jLabel3.setText("Turmas");
+        jPConcluidas.add(jLabel3);
+        jLabel3.setBounds(10, 0, 160, 40);
+
+        jLbAtualizarListaTurmas2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLbAtualizarListaTurmas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/autorenew.png"))); // NOI18N
+        jLbAtualizarListaTurmas2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLbAtualizarListaAtividadesConcluidasMouseClicked(evt);
+                jLbAtualizarListaTurmas2MouseClicked(evt);
             }
         });
-        jPConcluidas.add(jLbAtualizarListaAtividadesConcluidas);
-        jLbAtualizarListaAtividadesConcluidas.setBounds(170, 36, 40, 24);
+        jPConcluidas.add(jLbAtualizarListaTurmas2);
+        jLbAtualizarListaTurmas2.setBounds(180, 0, 30, 40);
 
         jTBFundo.addTab("Concluídas", new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/check-circle-outline.png")), jPConcluidas); // NOI18N
 
@@ -785,19 +752,11 @@ public class ProfessorSwing extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jListaAtividadesConcluidasMouseClicked
 
-    private void jTFPesquisarConcluidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisarConcluidasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFPesquisarConcluidasActionPerformed
-
     private void jBEditarAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarAtividadeActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Pegar as informações da atividade e mandar pra tela nova atividade para editar");
         new NovaAtividadeSwing(1).setVisible(true);
     }//GEN-LAST:event_jBEditarAtividadeActionPerformed
-
-    private void jTFPesquisarEmAndamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisarEmAndamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFPesquisarEmAndamentoActionPerformed
 
     private void jListaAtividadesAndamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaAtividadesAndamentoMouseClicked
 
@@ -830,10 +789,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbQntAlunosTurma.setText(String.valueOf(turmas.get(itemSelecionado).getAlunos().size()));
     }//GEN-LAST:event_jListaTurmasMouseClicked
 
-    private void jTFPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFPesquisarActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         
         new NovaAtividadeSwing(2).setVisible(true);
@@ -862,13 +817,13 @@ public class ProfessorSwing extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLbAtualizarListaTurmasMouseClicked
 
-    private void jLbAtualizarListaAtividadesAndamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbAtualizarListaAtividadesAndamentoMouseClicked
+    private void jLbAtualizarListaTurmas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbAtualizarListaTurmas1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLbAtualizarListaAtividadesAndamentoMouseClicked
+    }//GEN-LAST:event_jLbAtualizarListaTurmas1MouseClicked
 
-    private void jLbAtualizarListaAtividadesConcluidasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbAtualizarListaAtividadesConcluidasMouseClicked
+    private void jLbAtualizarListaTurmas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbAtualizarListaTurmas2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLbAtualizarListaAtividadesConcluidasMouseClicked
+    }//GEN-LAST:event_jLbAtualizarListaTurmas2MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -903,19 +858,20 @@ public class ProfessorSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel imagemLupa;
     private javax.swing.JButton jBEditarAtividade;
     private javax.swing.JButton jBEditarTurma;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
@@ -924,15 +880,14 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLbAtualizarListaAtividadesAndamento;
-    private javax.swing.JLabel jLbAtualizarListaAtividadesConcluidas;
     private javax.swing.JLabel jLbAtualizarListaTurmas;
+    private javax.swing.JLabel jLbAtualizarListaTurmas1;
+    private javax.swing.JLabel jLbAtualizarListaTurmas2;
     private javax.swing.JLabel jLbCodTurma;
     private javax.swing.JLabel jLbCursoTurma;
     private javax.swing.JLabel jLbDataConcluidas;
@@ -988,9 +943,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
     private javax.swing.JTextArea jTADescricaoConcluidas;
     private javax.swing.JTextArea jTADescricaoEmAndamento;
     private javax.swing.JTabbedPane jTBFundo;
-    private javax.swing.JTextField jTFPesquisar;
-    private javax.swing.JTextField jTFPesquisarConcluidas;
-    private javax.swing.JTextField jTFPesquisarEmAndamento;
     private javax.swing.JTabbedPane jTFundo;
     private javax.swing.JTable jTRanking;
     // End of variables declaration//GEN-END:variables
