@@ -133,10 +133,10 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTRanking = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -607,19 +607,6 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jMenuBar1.setBackground(new java.awt.Color(1, 1, 1));
         jMenuBar1.setForeground(new java.awt.Color(254, 254, 254));
 
-        jMenu2.setText("Atividades");
-
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setText("Nova atividade");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu2);
-
         jMenu3.setText("Turmas");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
@@ -632,6 +619,19 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jMenu3.add(jMenuItem1);
 
         jMenuBar1.add(jMenu3);
+
+        jMenu2.setText("Atividades");
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setText("Nova atividade");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu2);
 
         jMenu1.setText("Opções");
 
