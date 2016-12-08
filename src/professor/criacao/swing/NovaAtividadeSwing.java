@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package professor.swing;
+package professor.criacao.swing;
 
 import conexaodb.RequisicaoHttp;
 import entidades.atividade.Atividade;
@@ -11,6 +11,7 @@ import entidades.atividade.Classificacao;
 import entidades.atividade.Endereco;
 import entidades.atividade.Pontuacao;
 import entidades.turma.Turma;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,20 +28,11 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
     ArrayList<Turma> turmas;
     ArrayList<String> idTurmas;
     
-    public NovaAtividadeSwing(int num) {
+    public NovaAtividadeSwing() {
         initComponents();
         
         setSize(700,500);
         setLocationRelativeTo(null);
-        
-                
-            if (num==1) {
-                //edição
-                jLBNovaAtividade.setText("Editar Atividade");
-            }else if (num==2){
-                //nova atividade
-                jLBNovaAtividade.setText("Nova Atividade");
-            }
     }
 
     @SuppressWarnings("unchecked")
@@ -72,7 +64,7 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jBSalvarAtividade = new javax.swing.JButton();
-        jBExcluirAtividade = new javax.swing.JButton();
+        jBCancelarAtividade = new javax.swing.JButton();
         jLBNovaAtividade = new javax.swing.JLabel();
         jCBTerceiroLugar = new javax.swing.JComboBox<>();
         jCBSegundoLugar = new javax.swing.JComboBox<>();
@@ -184,13 +176,13 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
             }
         });
 
-        jBExcluirAtividade.setBackground(new java.awt.Color(1, 1, 1));
-        jBExcluirAtividade.setForeground(new java.awt.Color(254, 254, 254));
-        jBExcluirAtividade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/delete.png"))); // NOI18N
-        jBExcluirAtividade.setText("Excluir");
-        jBExcluirAtividade.addActionListener(new java.awt.event.ActionListener() {
+        jBCancelarAtividade.setBackground(new java.awt.Color(1, 1, 1));
+        jBCancelarAtividade.setForeground(new java.awt.Color(254, 254, 254));
+        jBCancelarAtividade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/delete.png"))); // NOI18N
+        jBCancelarAtividade.setText("Cancelar");
+        jBCancelarAtividade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBExcluirAtividadeActionPerformed(evt);
+                jBCancelarAtividadeActionPerformed(evt);
             }
         });
 
@@ -240,6 +232,12 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
 
         jCBComplemento.setBackground(new java.awt.Color(254, 254, 254));
         jCBComplemento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher...", "IFSul", "Parque do Chimarrão", "Casa" }));
+
+        jTFLocalAtividade1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFLocalAtividade1KeyTyped(evt);
+            }
+        });
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/numeric.png"))); // NOI18N
         jLabel17.setText("Número: ");
@@ -316,7 +314,7 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jBSalvarAtividade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBExcluirAtividade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jBCancelarAtividade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(44, 44, 44))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -350,7 +348,7 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                 .addGap(89, 89, 89)
                 .addComponent(jBSalvarAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBExcluirAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBCancelarAtividade, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -422,14 +420,12 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBExcluirAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirAtividadeActionPerformed
-        // TODO add your handling code here:
-        int resp = JOptionPane.showConfirmDialog(null, "Deseja excluir a atividade?", "Excluir", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+    private void jBCancelarAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarAtividadeActionPerformed
+        int resp = JOptionPane.showConfirmDialog(null, "Deseja cancelar o cadastro desta atividade?", "Cancelar cadastro", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (resp == JOptionPane.YES_OPTION) {
-            //delete no banco
             this.dispose();
         }
-    }//GEN-LAST:event_jBExcluirAtividadeActionPerformed
+    }//GEN-LAST:event_jBCancelarAtividadeActionPerformed
     public String dataNum (String str) {
         String a = str.replaceAll("[^0-9]", "");
         String num = (a);
@@ -460,7 +456,11 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                     atividade.setDescricao(jTADescricaoAtividade.getText());
                     atividade.setData(data);
                     atividade.setHora(jTFHoraAtividade.getText());
-                    atividade.setEndereco(new Endereco("Rua teste", "Bairro teste", 9999, jCBComplemento.getSelectedItem().toString()));
+                    atividade.setEndereco(new Endereco(
+                            jTFLocalAtividade.getText(),
+                            jTFLocalAtividade2.getText(),
+                            Long.parseLong(jTFLocalAtividade1.getText()),
+                            jCBComplemento.getSelectedItem().toString()));
                     atividade.setPontuacao(new Pontuacao(
                             Long.parseLong(jTFPontuacaoPrimeiro.getText()),
                             Long.parseLong(jTFPontuacaoSegundo.getText()),
@@ -472,10 +472,14 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                     
                     //System.out.println("index: " + jCBPrimeiroLugar.getSelectedIndex());
                     //System.out.println(turmas.toString());
-                    
-                    CalculaTotalPontosTurma(jCBPrimeiroLugar.getSelectedIndex(), atividade.getPontuacao().getPrimeiro());
-                    CalculaTotalPontosTurma(jCBSegundoLugar.getSelectedIndex(), atividade.getPontuacao().getSegundo());
-                    CalculaTotalPontosTurma(jCBTerceiroLugar.getSelectedIndex(), atividade.getPontuacao().getTerceiro());
+
+                    try {
+                        CalculaTotalPontosTurma(jCBPrimeiroLugar.getSelectedIndex(), atividade.getPontuacao().getPrimeiro());
+                        CalculaTotalPontosTurma(jCBSegundoLugar.getSelectedIndex(), atividade.getPontuacao().getSegundo());
+                        CalculaTotalPontosTurma(jCBTerceiroLugar.getSelectedIndex(), atividade.getPontuacao().getTerceiro());
+                    } catch (Exception ex) {
+                        Logger.getLogger(NovaAtividadeSwing.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     
                     try {
                         new RequisicaoHttp().insertAtividade(atividade);
@@ -489,7 +493,11 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                     atividade.setDescricao(jTADescricaoAtividade.getText());
                     atividade.setData(data);
                     atividade.setHora(jTFHoraAtividade.getText());
-                    atividade.setEndereco(new Endereco("Rua teste", "Bairro teste", 9999, jCBComplemento.getSelectedItem().toString()));
+                    atividade.setEndereco(new Endereco(
+                            jTFLocalAtividade.getText(),
+                            jTFLocalAtividade2.getText(),
+                            Long.parseLong(jTFLocalAtividade1.getText()),
+                            jCBComplemento.getSelectedItem().toString()));
                     atividade.setPontuacao(new Pontuacao(
                             Long.parseLong(jTFPontuacaoPrimeiro.getText()),
                             Long.parseLong(jTFPontuacaoSegundo.getText()),
@@ -499,6 +507,20 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                     } catch (Exception ex) {
                         Logger.getLogger(NovaAtividadeSwing.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                    jTFNomeAtividade.setText("");
+                    jTADescricaoAtividade.setText("");
+                    jTFHoraAtividade.setText("");
+                    jTFLocalAtividade.setText("");
+                    jTFLocalAtividade1.setText("");
+                    jTFLocalAtividade2.setText("");
+                    jCBComplemento.setSelectedIndex(0);
+                    jTFPontuacaoPrimeiro.setText("");
+                    jTFPontuacaoSegundo.setText("");
+                    jTFPontuacaoTerceiro.setText("");
+                    jRBConcluida.setSelected(false);
+                    jRBEmAndamento.setSelected(false);
+                    
+                    JOptionPane.showMessageDialog(null, "Nova atividade cadastrada com êxito!", "Operação realizada com sucesso", JOptionPane.PLAIN_MESSAGE);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Favor informe a situação da atividade", "Atenção!", JOptionPane.WARNING_MESSAGE);
@@ -508,7 +530,8 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jBSalvarAtividadeActionPerformed
-    public void CalculaTotalPontosTurma (int index, long pontosAtividade) {
+    
+    public void CalculaTotalPontosTurma (int index, long pontosAtividade) throws Exception {
         if (index != 0) {
             index --;
             long pontosAtuais = turmas.get(index).getPontos();
@@ -519,11 +542,10 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
             
             turmas.get(index).setPontos(pontosTotais);
             
-            
+            new RequisicaoHttp().updateTurma(turmas.get(index));
             //CHAMAR MÉTODO DE ALTERAR TURMA E COLOCAR ESSE VALOR NA PONTUAÇÃO DELA
         }
     }
-    
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
@@ -570,24 +592,32 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jRBEmAndamentoActionPerformed
 
     private void jRBEmAndamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRBEmAndamentoMouseClicked
-        jCBPrimeiroLugar.enable(false);
-        jCBSegundoLugar.enable(false);
-        jCBTerceiroLugar.enable(false);
+        jCBPrimeiroLugar.setEnabled(false);
+        jCBSegundoLugar.setEnabled(false);
+        jCBTerceiroLugar.setEnabled(false);
     }//GEN-LAST:event_jRBEmAndamentoMouseClicked
 
     private void jRBConcluidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRBConcluidaMouseClicked
-        jCBPrimeiroLugar.enable(true);
-        jCBSegundoLugar.enable(true);
-        jCBTerceiroLugar.enable(true);
+        jCBPrimeiroLugar.setEnabled(true);
+        jCBSegundoLugar.setEnabled(true);
+        jCBTerceiroLugar.setEnabled(true);
     }//GEN-LAST:event_jRBConcluidaMouseClicked
 
     private void jTFPontuacaoSegundoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPontuacaoSegundoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFPontuacaoSegundoActionPerformed
 
+    private void jTFLocalAtividade1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFLocalAtividade1KeyTyped
+        // aceita somente numeros
+        String caracteres = "0987654321";
+        if (!caracteres.contains(evt.getKeyChar()+"")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFLocalAtividade1KeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jBExcluirAtividade;
+    private javax.swing.JButton jBCancelarAtividade;
     private javax.swing.JButton jBSalvarAtividade;
     private javax.swing.JComboBox<String> jCBComplemento;
     private javax.swing.JComboBox<String> jCBPrimeiroLugar;

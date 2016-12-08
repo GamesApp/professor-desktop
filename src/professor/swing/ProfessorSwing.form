@@ -364,6 +364,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagens/vintequatro/autorenew.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Clique para atualizar a lista"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLbAtualizarListaTurmasMouseClicked"/>
@@ -812,6 +813,7 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/imagens/vintequatro/autorenew.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Clique para atualizar a lista"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLbAtualizarListaTurmas1MouseClicked"/>
@@ -1141,6 +1143,7 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/imagens/vintequatro/autorenew.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Clique para atualizar a lista"/>
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLbAtualizarListaTurmas2MouseClicked"/>

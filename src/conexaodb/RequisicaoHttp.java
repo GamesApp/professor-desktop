@@ -71,6 +71,18 @@ public class RequisicaoHttp {
         new RequisicaoHttp().sendPost(url, professorJson);
     }
     
+    public void updateProfessor(Professor professor) throws Exception {
+        String url = "http://" + IP +
+                ":8080/web-service/webresources/GamesApp/Professor/alterar";
+        
+        Gson gson = new Gson();
+        Type professorType = new TypeToken<Professor>() {}.getType();
+        
+        String professorJson = gson.toJson(professor, professorType);
+        
+        new RequisicaoHttp().sendPut(url, professorJson);
+    }
+    
     //Método para verificar o login do aluno
     public Aluno loginAluno(String email, String senha) throws Exception {
         String url = "http://" + IP +
@@ -151,6 +163,25 @@ public class RequisicaoHttp {
         }
     }
     
+    public void updateAtividade(Atividade atividade) throws Exception {
+        String url = "http://" + IP +
+                ":8080/web-service/webresources/GamesApp/Atividade/alterar";
+        
+        Gson gson = new Gson();
+        Type atividadeType = new TypeToken<Atividade>() {}.getType();
+        
+        String atividadeJson = gson.toJson(atividade, atividadeType);
+        
+        new RequisicaoHttp().sendPut(url, atividadeJson);
+    }
+    
+    public void deleteAtividade(Atividade atividade) throws Exception {
+        String url = "http://" + IP +
+                ":8080/web-service/webresources/GamesApp/Atividade/delete/" + atividade.getId();
+        
+        new RequisicaoHttp().sendDelete(url);
+    }
+    
     //Método para inserir uma nova turma
     public void insertTurma(Turma turma) throws Exception {
         String url = "http://" + IP +
@@ -189,6 +220,25 @@ public class RequisicaoHttp {
             
             return turmas;
         }
+    }
+    
+    public void updateTurma(Turma turma) throws Exception {
+        String url = "http://" + IP +
+                ":8080/web-service/webresources/GamesApp/Turma/alterar";
+        
+        Gson gson = new Gson();
+        Type turmaType = new TypeToken<Turma>() {}.getType();
+        
+        String turmaJson = gson.toJson(turma, turmaType);
+        
+        new RequisicaoHttp().sendPut(url, turmaJson);
+    }
+    
+    public void deleteTurma(Turma turma) throws Exception {
+        String url = "http://" + IP +
+                ":8080/web-service/webresources/GamesApp/Turma/delete/" + turma.getId();
+        
+        new RequisicaoHttp().sendDelete(url);
     }
 
     //Método que faz requisição http via url
@@ -262,5 +312,78 @@ public class RequisicaoHttp {
  
 	//print result
 	System.out.println(response.toString());
+    }
+    
+    //Método que envia dados via Put para o WebService
+    private void sendPut(String url, String urlParameters) throws Exception {
+ 
+	//String url = "https://selfsolve.apple.com/wcResults.do";
+	URL obj = new URL(url);
+	HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+ 
+	//add reuqest header
+	con.setRequestMethod("PUT");
+        con.setRequestProperty("Content-Type", "application/json");
+	con.setRequestProperty("User-Agent", USER_AGENT);
+	con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+ 
+	//String urlParameters = "sn=C02G8416DRJM&cn=&locale=&caller=&num=12345";
+ 
+	// Send post request
+	con.setDoOutput(true);
+	DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+	wr.writeBytes(urlParameters);
+	wr.flush();
+	wr.close();
+ 
+	int responseCode = con.getResponseCode();
+	System.out.println("\nSending 'POST' request to URL : " + url);
+	System.out.println("Post parameters : " + urlParameters);
+	System.out.println("Response Code : " + responseCode);
+ 
+	BufferedReader in = new BufferedReader(
+	    new InputStreamReader(con.getInputStream()));
+	String inputLine;
+	StringBuffer response = new StringBuffer();
+ 
+	while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+	}
+	in.close();
+ 
+	//print result
+	System.out.println(response.toString());
+    }
+    
+    //Método que faz requisição http via url para deletar
+    private String sendDelete(String url) throws Exception {
+ 
+	//String url = "http://localhost:8080/RestExemplo01/webresources/generic/exemplojson/oi";
+ 
+	URL obj = new URL(url);
+	HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+ 
+	// optional default is GET
+	con.setRequestMethod("DELETE");
+ 
+	//add request header
+	con.setRequestProperty("User-Agent", USER_AGENT);
+ 
+	int responseCode = con.getResponseCode();
+	System.out.println("\nSending 'GET' request to URL : " + url);
+	System.out.println("Response Code : " + responseCode);
+ 
+	BufferedReader in = new BufferedReader(
+	    new InputStreamReader(con.getInputStream()));
+	String inputLine;
+	StringBuffer response = new StringBuffer();
+ 
+	while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+	}
+	in.close();
+ 
+	//retorno resultado
+	return response.toString();
     }
 }

@@ -7,7 +7,10 @@ package professor.swing;
 
 import Criptografia.CodCifraDeVigenere;
 import Criptografia.ExemploCriptografia;
+import conexaodb.RequisicaoHttp;
 import entidades.pessoa.Professor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -222,8 +225,16 @@ public class AlterarSenhaSwing extends javax.swing.JFrame {
                 String NovaSenhaCriptografada = ex.GeraCriptografia(novaSenha, 1);
                 
                 professor.setSenha(NovaSenhaCriptografada);
-                //Alterar no banco
-                
+                try {
+                    //Alterar no banco
+                    new RequisicaoHttp().updateProfessor(professor);
+                } catch (Exception ex1) {
+                    Logger.getLogger(AlterarSenhaSwing.class.getName()).log(Level.SEVERE, null, ex1);
+                }
+                jPFSenhaAtualProfessor.setText("");
+                jPFNovaSenhaProfessor.setText("");
+                jPFConfirmaNovaSenhaProfessor.setText("");
+                JOptionPane.showMessageDialog(null, "Alteração de senha realizada com sucesso!", "Alteração de senha", JOptionPane.PLAIN_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Os campos de nova senha não coincidem!");
                 jPFNovaSenhaProfessor.setText("");

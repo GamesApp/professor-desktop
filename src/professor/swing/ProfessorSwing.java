@@ -1,10 +1,13 @@
 
 package professor.swing;
 
+import professor.criacao.swing.NovaTurmaSwing;
+import professor.criacao.swing.NovaAtividadeSwing;
 import conexaodb.RequisicaoHttp;
 import entidades.atividade.Atividade;
 import entidades.pessoa.Professor;
 import entidades.turma.Turma;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,6 +15,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import professor.edicao.swing.EditarAtividadeSwing;
+import professor.edicao.swing.EditarTurmaSwing;
 
 
 
@@ -237,6 +242,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jLbAtualizarListaTurmas.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbAtualizarListaTurmas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/autorenew.png"))); // NOI18N
+        jLbAtualizarListaTurmas.setToolTipText("Clique para atualizar a lista");
         jLbAtualizarListaTurmas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLbAtualizarListaTurmasMouseClicked(evt);
@@ -404,6 +410,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jLbAtualizarListaTurmas1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbAtualizarListaTurmas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/autorenew.png"))); // NOI18N
+        jLbAtualizarListaTurmas1.setToolTipText("Clique para atualizar a lista");
         jLbAtualizarListaTurmas1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLbAtualizarListaTurmas1MouseClicked(evt);
@@ -532,6 +539,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
         jLbAtualizarListaTurmas2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLbAtualizarListaTurmas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vintequatro/autorenew.png"))); // NOI18N
+        jLbAtualizarListaTurmas2.setToolTipText("Clique para atualizar a lista");
         jLbAtualizarListaTurmas2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLbAtualizarListaTurmas2MouseClicked(evt);
@@ -672,7 +680,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
  
-       //Lista de turmas HOME
+        //Lista de turmas HOME
         DefaultListModel listaTurma = new DefaultListModel();
         try {
             /*for (int i = 0; i < 10; i++) {
@@ -722,6 +730,8 @@ public class ProfessorSwing extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(ProfessorSwing.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         //tabela do ranking
         DefaultTableModel model = (DefaultTableModel)jTRanking.getModel();
         model.setNumRows(0);
@@ -753,9 +763,14 @@ public class ProfessorSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jListaAtividadesConcluidasMouseClicked
 
     private void jBEditarAtividadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarAtividadeActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Pegar as informações da atividade e mandar pra tela nova atividade para editar");
-        new NovaAtividadeSwing(1).setVisible(true);
+        try {
+            // TODO add your handling code here:
+            //JOptionPane.showMessageDialog(null, "Pegar as informações da atividade e mandar pra tela nova atividade para editar");
+            //Chama a tela de edição passando o objeto
+            new EditarAtividadeSwing(atividadesAndamento.get(jListaAtividadesAndamento.getSelectedIndex())).setVisible(true);
+        } catch (ParseException ex) {
+            Logger.getLogger(ProfessorSwing.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jBEditarAtividadeActionPerformed
 
     private void jListaAtividadesAndamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaAtividadesAndamentoMouseClicked
@@ -791,38 +806,117 @@ public class ProfessorSwing extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         
-        new NovaAtividadeSwing(2).setVisible(true);
+        new NovaAtividadeSwing().setVisible(true);
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         
-        new NovaTurmaSwing(2).setVisible(true);
+        new NovaTurmaSwing().setVisible(true);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
+
         new AlterarSenhaSwing(professor).setVisible(true);
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jBEditarTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarTurmaActionPerformed
         // mandando o objeto turma p alterações
-        new NovaTurmaSwing(1).setVisible(true);
+        new EditarTurmaSwing(turmas.get(jListaTurmas.getSelectedIndex())).setVisible(true);
     }//GEN-LAST:event_jBEditarTurmaActionPerformed
 
     private void jLbAtualizarListaTurmasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbAtualizarListaTurmasMouseClicked
         // atualizar a lista
         
+        DefaultListModel listaTurma = new DefaultListModel();
+        try {
+            /*for (int i = 0; i < 10; i++) {
+            listaTurma.addElement("INF4AM: " + i);
+            }*/
+            turmas = new RequisicaoHttp().getTurmaTodas();
+            idTurmas = new ArrayList<>();
+            
+            for (int i = 0; i < turmas.size(); i++) {
+                listaTurma.addElement(turmas.get(i).getNome());
+                idTurmas.add(turmas.get(i).getId());
+            }
+            
+            for (int i = 0; i < idTurmas.size(); i++) {
+                System.out.println("id: " + idTurmas.get(i));
+            }
+        
+            jListaTurmas.setModel(listaTurma);
+        } catch (Exception ex) {
+            Logger.getLogger(ProfessorSwing.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jLbAtualizarListaTurmasMouseClicked
 
     private void jLbAtualizarListaTurmas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbAtualizarListaTurmas1MouseClicked
-        // TODO add your handling code here:
+        //Lista Atividades em andamento e lista atividades concluidas
+        atividadesAndamento.clear();
+        atividadesConcluidas.clear();
+        
+        DefaultListModel listaAtividadesAndamento = new DefaultListModel();
+        DefaultListModel listaAtividadesConcluidas = new DefaultListModel();
+        try {
+            ArrayList<Atividade> todasAtividades = new RequisicaoHttp().getAtividadeTodas();
+            
+            for (int i = 0; i < todasAtividades.size(); i++) {
+                if (todasAtividades.get(i).getSituacao().equals("Em andamento")) {
+                    atividadesAndamento.add(todasAtividades.get(i));
+                } else {
+                    atividadesConcluidas.add(todasAtividades.get(i));
+                }
+            }
+            
+            for (int i = 0; i < atividadesAndamento.size(); i++) {
+                listaAtividadesAndamento.addElement(atividadesAndamento.get(i).getNome());
+            }
+            jListaAtividadesAndamento.setModel(listaAtividadesAndamento);
+            
+            for (int i = 0; i < atividadesConcluidas.size(); i++) {
+                listaAtividadesConcluidas.addElement(atividadesConcluidas.get(i).getNome());
+            }
+            jListaAtividadesConcluidas.setModel(listaAtividadesConcluidas);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ProfessorSwing.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jLbAtualizarListaTurmas1MouseClicked
 
     private void jLbAtualizarListaTurmas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbAtualizarListaTurmas2MouseClicked
-        // TODO add your handling code here:
+        //Lista Atividades em andamento e lista atividades concluidas
+        atividadesAndamento.clear();
+        atividadesConcluidas.clear();
+        
+        DefaultListModel listaAtividadesAndamento = new DefaultListModel();
+        DefaultListModel listaAtividadesConcluidas = new DefaultListModel();
+        try {
+            ArrayList<Atividade> todasAtividades = new RequisicaoHttp().getAtividadeTodas();
+            
+            for (int i = 0; i < todasAtividades.size(); i++) {
+                if (todasAtividades.get(i).getSituacao().equals("Em andamento")) {
+                    atividadesAndamento.add(todasAtividades.get(i));
+                } else {
+                    atividadesConcluidas.add(todasAtividades.get(i));
+                }
+            }
+            
+            for (int i = 0; i < atividadesAndamento.size(); i++) {
+                listaAtividadesAndamento.addElement(atividadesAndamento.get(i).getNome());
+            }
+            jListaAtividadesAndamento.setModel(listaAtividadesAndamento);
+            
+            for (int i = 0; i < atividadesConcluidas.size(); i++) {
+                listaAtividadesConcluidas.addElement(atividadesConcluidas.get(i).getNome());
+            }
+            jListaAtividadesConcluidas.setModel(listaAtividadesConcluidas);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ProfessorSwing.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jLbAtualizarListaTurmas2MouseClicked
 
     public static void main(String args[]) {
