@@ -799,7 +799,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Ubuntu" size="17" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Turmas"/>
+                        <Property name="text" type="java.lang.String" value="Atividades"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1129,7 +1129,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Ubuntu" size="17" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Turmas"/>
+                        <Property name="text" type="java.lang.String" value="Atividades"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -25,7 +25,7 @@ import java.util.ArrayList;
  */
 public class RequisicaoHttp {
     private final String USER_AGENT = "Mozilla/5.0";
-    private final String IP = "127.0.0.1";
+    private final String IP = "192.168.2.122";
 
     public RequisicaoHttp() {
     }

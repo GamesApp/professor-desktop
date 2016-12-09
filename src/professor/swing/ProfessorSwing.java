@@ -404,7 +404,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jBEditarAtividade.setBounds(740, 420, 150, 28);
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
-        jLabel2.setText("Turmas");
+        jLabel2.setText("Atividades");
         jPEmAndamento.add(jLabel2);
         jLabel2.setBounds(10, 0, 160, 40);
 
@@ -533,7 +533,7 @@ public class ProfessorSwing extends javax.swing.JFrame {
         jLbLocalConcluidas.setBounds(360, 420, 160, 21);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 17)); // NOI18N
-        jLabel3.setText("Turmas");
+        jLabel3.setText("Atividades");
         jPConcluidas.add(jLabel3);
         jLabel3.setBounds(10, 0, 160, 40);
 
