@@ -774,19 +774,20 @@ public class ProfessorSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_jBEditarAtividadeActionPerformed
 
     private void jListaAtividadesAndamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaAtividadesAndamentoMouseClicked
+        if (jListaTurmas.getModel().getSize() != 0) {            
+            //pegar as informaões do objeto selecionado
+            int itemSelecionado = jListaAtividadesAndamento.getSelectedIndex();
 
-        //pegar as informaões do objeto selecionado
-        int itemSelecionado = jListaAtividadesAndamento.getSelectedIndex();
-        
-        //alterar as informações da tela EM ANDAMENTO       
-        jLbNomeAtividadeEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getNome());
-        jTADescricaoEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getDescricao());
-        jLbDataEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getData());
-        jLbHoraEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getHora());
-        jLbLocalEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getEndereco().toString());
-        jLbPontuacaoPrimeiro.setText(String.valueOf(atividadesAndamento.get(itemSelecionado).getPontuacao().getPrimeiro()));
-        jLbPontuacaoSegundo.setText(String.valueOf(atividadesAndamento.get(itemSelecionado).getPontuacao().getSegundo()));
-        jLbPontuacaoTerceiro.setText(String.valueOf(atividadesAndamento.get(itemSelecionado).getPontuacao().getTerceiro()));
+            //alterar as informações da tela EM ANDAMENTO       
+            jLbNomeAtividadeEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getNome());
+            jTADescricaoEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getDescricao());
+            jLbDataEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getData());
+            jLbHoraEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getHora());
+            jLbLocalEmAndamento.setText(atividadesAndamento.get(itemSelecionado).getEndereco().toString());
+            jLbPontuacaoPrimeiro.setText(String.valueOf(atividadesAndamento.get(itemSelecionado).getPontuacao().getPrimeiro()));
+            jLbPontuacaoSegundo.setText(String.valueOf(atividadesAndamento.get(itemSelecionado).getPontuacao().getSegundo()));
+            jLbPontuacaoTerceiro.setText(String.valueOf(atividadesAndamento.get(itemSelecionado).getPontuacao().getTerceiro()));
+        }
     }//GEN-LAST:event_jListaAtividadesAndamentoMouseClicked
 
     private void jListaTurmasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaTurmasMouseClicked
@@ -862,15 +863,18 @@ public class ProfessorSwing extends javax.swing.JFrame {
         DefaultListModel listaAtividadesConcluidas = new DefaultListModel();
         try {
             ArrayList<Atividade> todasAtividades = new RequisicaoHttp().getAtividadeTodas();
-            
-            for (int i = 0; i < todasAtividades.size(); i++) {
-                if (todasAtividades.get(i).getSituacao().equals("Em andamento")) {
-                    atividadesAndamento.add(todasAtividades.get(i));
-                } else {
-                    atividadesConcluidas.add(todasAtividades.get(i));
+            if (todasAtividades.equals("")) {
+                listaAtividadesAndamento.clear();
+                jListaAtividadesAndamento.setModel(listaAtividadesConcluidas);
+            } else {  
+                for (int i = 0; i < todasAtividades.size(); i++) {
+                    if (todasAtividades.get(i).getSituacao().equals("Em andamento")) {
+                            atividadesAndamento.add(todasAtividades.get(i));
+                    } else {
+                        atividadesConcluidas.add(todasAtividades.get(i));
+                    }
                 }
             }
-            
             for (int i = 0; i < atividadesAndamento.size(); i++) {
                 listaAtividadesAndamento.addElement(atividadesAndamento.get(i).getNome());
             }

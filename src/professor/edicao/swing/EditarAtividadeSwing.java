@@ -462,11 +462,11 @@ public class EditarAtividadeSwing extends javax.swing.JFrame {
         if (resp == JOptionPane.YES_OPTION) {
             try {
                 new RequisicaoHttp().deleteAtividade(atividade);
+                JOptionPane.showMessageDialog(null, "Atividade excluída com sucesso!", "Operação realizada com sucesso", JOptionPane.PLAIN_MESSAGE);
+                this.dispose();
             } catch (Exception ex) {
                 Logger.getLogger(EditarTurmaSwing.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            this.dispose();
         }
     }//GEN-LAST:event_jBExcluirAtividadeActionPerformed
     public String dataNum (String str) {
@@ -524,7 +524,9 @@ public class EditarAtividadeSwing extends javax.swing.JFrame {
                     }
                     
                     try {
-                        new RequisicaoHttp().insertAtividade(atividade);
+                        new RequisicaoHttp().updateAtividade(atividade);
+                        JOptionPane.showMessageDialog(null, "Atividade alterada com sucesso!", "Operação realizada com sucesso", JOptionPane.PLAIN_MESSAGE);
+                        this.dispose();
                     } catch (Exception ex) {
                         Logger.getLogger(NovaAtividadeSwing.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -543,6 +545,10 @@ public class EditarAtividadeSwing extends javax.swing.JFrame {
                             Long.parseLong(jTFPontuacaoPrimeiro.getText()),
                             Long.parseLong(jTFPontuacaoSegundo.getText()),
                             Long.parseLong(jTFPontuacaoTerceiro.getText())));
+                    atividade.setClassificacao(new Classificacao(
+                            "",
+                            "",
+                            ""));
                     try {
                         new RequisicaoHttp().updateAtividade(atividade);
                     } catch (Exception ex) {

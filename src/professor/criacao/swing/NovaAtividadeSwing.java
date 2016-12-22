@@ -231,7 +231,7 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
         jLabel16.setText("Complemento:");
 
         jCBComplemento.setBackground(new java.awt.Color(254, 254, 254));
-        jCBComplemento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher...", "IFSul", "Parque do Chimarrão", "Casa" }));
+        jCBComplemento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher...", "IFSul", "Parque do Chimarrao", "Casa" }));
 
         jTFLocalAtividade1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -502,6 +502,10 @@ public class NovaAtividadeSwing extends javax.swing.JFrame {
                             Long.parseLong(jTFPontuacaoPrimeiro.getText()),
                             Long.parseLong(jTFPontuacaoSegundo.getText()),
                             Long.parseLong(jTFPontuacaoTerceiro.getText())));
+                    atividade.setClassificacao(new Classificacao(
+                            "",
+                            "",
+                            ""));
                     try {
                         new RequisicaoHttp().insertAtividade(atividade);
                     } catch (Exception ex) {
